@@ -1,5 +1,6 @@
 package steps;
 
+import models.UserGuest;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
