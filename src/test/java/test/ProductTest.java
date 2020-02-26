@@ -11,6 +11,7 @@ import steps.ProductSteps;
 public class ProductTest extends BaseTest {
     @Steps
     HeaderSteps headerSteps;
+    @Steps
     ProductSteps productSteps;
 
     @Test
@@ -18,10 +19,10 @@ public class ProductTest extends BaseTest {
         headerSteps.insertKeywordInSearchField("glass");
     }
 
-//    @Test
-//    public void getColorProperty() {
-//        productSteps.getColor();
-//    }
+    @Test
+    public void getColorProperty() {
+        productSteps.getColor();
+    }
 
 
 }

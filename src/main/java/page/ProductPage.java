@@ -15,9 +15,9 @@ public class ProductPage extends AbstractPage {
     @FindBy(css = "ul#configurable_swatch_size li")
     private List<WebElementFacade> customSize;
 
-//    public int getColorListSize() {
-//        return colorList.size();
-//    }
+    public int getColorListSize() {
+        return colorList.size();
+    }
 
 
 
