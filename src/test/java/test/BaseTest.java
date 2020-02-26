@@ -26,7 +26,7 @@ public class BaseTest {
 	@After
 	public void tearDown() {
 		System.out.println("After test!");
-		webdriver.quit();
+		//webdriver.quit();
 	}
 
 }

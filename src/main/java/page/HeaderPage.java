@@ -52,6 +52,7 @@ public class HeaderPage extends AbstractPage{
     private WebElementFacade clickToAddtocart;
 
 
+
     public String getGreetMessage(){
         withTimeoutOf(Duration.ofSeconds(5)).waitFor(greetMessage);
         return greetMessage.getText();
@@ -113,7 +114,7 @@ public class HeaderPage extends AbstractPage{
 
     }
 
-    public void getheaderTitles() {
+    public void getHeaderTitles() {
         for (WebElementFacade list : getheaderTitles) {
             System.out.println(list.getText());
         }

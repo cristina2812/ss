@@ -59,7 +59,7 @@ public class HeaderSteps {
 
     @Step
     public void checkHeaderTitles(){
-        headerPage.getheaderTitles();
+        headerPage.getHeaderTitles();
         headerPage.clickOnSpecificTitle();
         Assert.assertEquals(headerPage.getSiteUrl(), "http://qa2.dev.evozon.com/sale.html");
     }

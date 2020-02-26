@@ -10,8 +10,7 @@ import steps.ProductSteps;
 
 
 @RunWith(SerenityRunner.class)
-public class ProductTest extends BaseTest{
-
+public class ProductTest extends BaseTest {
     @Steps
     ProductSteps productSteps;
 

@@ -4,6 +4,8 @@ package steps;
 import net.thucydides.core.annotations.Step;
 import page.ProductPage;
 
+import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
 import page.HeaderPage;
 import page.ProductsListPage;
 
@@ -34,9 +36,7 @@ public class ProductSteps {
     public void insertKeywordInSearchField(String key) {
         headerPage.changeFieldSearch(key);
         headerPage.clickSearchBtn();
-    }
-    @Step
-    public void selectASimpleProduct(){
-            productsListPage.clickOnSimpleProductPage();
+        productsListPage.getRandomProduct();
+        productPage.getRandomProperties();
     }
 }
