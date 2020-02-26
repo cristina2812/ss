@@ -19,7 +19,7 @@ public class CheckoutSteps {
     }
 
     @Step
-    public void fillRegisterData(UserGuest userGuest){
+    public void fillRegisterDataInBillingInfo (UserGuest userGuest){
        checkoutPage.typeFirstName(userGuest.getFirstName());
        checkoutPage.typeLastName(userGuest.getLastName());
        checkoutPage.typeEmail(userGuest.getEmail());
@@ -35,6 +35,7 @@ public class CheckoutSteps {
     public void clickSelectShipToDifferentAddress() {
         checkoutPage.selectshipToDifferentAddressOption();
     }
+
     @Step
     public void clickShippingMethod(){
         checkoutPage.clickRadioButtonFreeShipping();
@@ -51,11 +52,27 @@ public class CheckoutSteps {
         checkoutPage.clickContinueButtonFromBillingInformationCheckout();
     }
 
-
-
     @Step
     public void clickOrderReview(){
         checkoutPage.clickPlaceOrder();
     }
 
+    @Step
+    public void fillRegisterDataInShippingInformation (UserGuest userGuest){
+
+        checkoutPage.typeFirstNameInShipping(userGuest.getFirstName());
+        checkoutPage.typeLastNameInShipping(userGuest.getLastName());
+        checkoutPage.typeCityInShipping(userGuest.getCity());
+        checkoutPage.typeZipCodeInShipping(userGuest.getZipCode());
+        checkoutPage.typePhoneNumberInShipping(userGuest.getTelephone());
+        checkoutPage.selectCountryInShipping(userGuest.getSelectCountry());
+        checkoutPage.selectRegionInShipping(userGuest.getSelectState());
+        checkoutPage.typeAddressInShipping(userGuest.getAddress());
+    }
+
+    @Step
+    public void clickOnContinueButtonFromShippingInformation() {
+        checkoutPage.clickContinueButtonFromShippingInformation();
+    }
 }
+

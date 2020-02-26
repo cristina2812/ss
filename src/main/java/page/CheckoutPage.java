@@ -58,6 +58,32 @@ public class CheckoutPage extends AbstractPage {
     @FindBy (id = "billing-buttons-container")
     private WebElementFacade continueButtonFromBillingInformationCheckout;
 
+    @FindBy (id = "shipping:firstname")
+    private WebElementFacade shippingFirstName;
+
+    @FindBy (id = "shipping:lastname")
+    private WebElementFacade shippingLastName;
+
+    @FindBy (id = "shipping:street1")
+    private WebElementFacade shippingAddress;
+
+    @FindBy (id = "shipping:city")
+    private WebElementFacade shippingCity;
+
+    @FindBy (id = "shipping:country_id")
+    private WebElementFacade shippingCountry;
+
+    @FindBy (id = "shipping:telephone")
+    private WebElementFacade shippingPhoneNumber;
+
+    @FindBy (id = "shipping:postcode")
+    private WebElementFacade shippingPostCode;
+
+    @FindBy (id = "shipping:region_id")
+    private WebElementFacade shippingRegion;
+
+    @FindBy (id = "shipping-buttons-container")
+    private WebElementFacade continueButtonFromShippingInformation;
 
     public void clickCheckOutAsGuestButton() {
         checkOutAsGuestButton.click();
@@ -66,6 +92,7 @@ public class CheckoutPage extends AbstractPage {
     public void clickRadioButtonFreeShipping(){
         freeShippingMethodradioBtn.click();
     }
+
     public void typeFirstName(String firstName) {
         billingFristName.type(firstName);
     }
@@ -122,4 +149,46 @@ public class CheckoutPage extends AbstractPage {
     public void clickPlaceOrder(){
         placeOrderBtn.click();
     }
+
+    //////////////////////////////
+
+    public void typeFirstNameInShipping(String firstName) {
+        shippingFirstName.type(firstName);
+    }
+
+    public void typeLastNameInShipping(String lastName) {
+        shippingLastName.type(lastName);
+    }
+
+    public void typeAddressInShipping(String address) {
+        shippingAddress.type(address);
+    }
+
+    public void typeCityInShipping(String city) {
+        shippingCity.type(city);
+    }
+
+    public void typeZipCodeInShipping(String zipCode){
+        shippingPostCode.type(zipCode);
+    }
+
+    public void typePhoneNumberInShipping(String phoneNumber) {
+        shippingPhoneNumber.type(phoneNumber);
+    }
+
+    public String selectRegionInShipping(String region) {
+        region = shippingRegion.selectByValue("4");
+        return region;
+    }
+
+    public String selectCountryInShipping(String country){
+        country = shippingCountry.selectByValue("RO");
+        return country;
+    }
+
+    public void clickContinueButtonFromShippingInformation() {
+        continueButtonFromShippingInformation.click();
+    }
+
+
 }
