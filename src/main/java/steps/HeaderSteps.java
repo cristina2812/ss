@@ -46,12 +46,12 @@ public class HeaderSteps {
     }
 
     @Step
-    public void insertKeywordInSearchField(){
-        headerPage.changeFieldSearch();
-        String getinsertInFieldSearch = headerPage.getSearchField();
+    public void insertKeywordInSearchField(String key){
+        headerPage.changeFieldSearch(key);
+        String getInsertInFieldSearch = headerPage.getSearchField();
         headerPage.clickSearchBtn();
         String getPageTitleSearch =  headerPage.getPageTitleSearch();
-        Assert.assertTrue(getPageTitleSearch.contains(getinsertInFieldSearch));
+        Assert.assertTrue(getPageTitleSearch.contains(getInsertInFieldSearch));
     }
 
 

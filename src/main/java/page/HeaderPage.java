@@ -10,96 +10,97 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 
 
-public class HeaderPage extends AbstractPage{
+public class HeaderPage extends AbstractPage {
 
-    @FindBy(css="p.welcome-msg")
+    @FindBy(css = "p.welcome-msg")
     private WebElementFacade greetMessage;
 
     @FindBy(css = "head > title")
     private WebElementFacade nameTitle;
 
-    @FindBy(css=".logo")
+    @FindBy(css = ".logo")
     private WebElementFacade pageLogo;
 
-    @FindBy(css=".skip-account")
+    @FindBy(css = ".skip-account")
     private WebElementFacade accountDropdownButton;
 
-    @FindBy(css="#header-account")
+    @FindBy(css = "#header-account")
     private WebElementFacade accountDropdownList;
 
-    @FindBy(id="select-language")
+    @FindBy(id = "select-language")
     private WebElementFacade languageDropdown;
 
-    @FindBy(css="#select-language > option")
+    @FindBy(css = "#select-language > option")
     private List<WebElementFacade> optionLanguageDropDown;
 
-    @FindBy(css="#search")
+    @FindBy(css = "#search")
     private WebElementFacade insertInFieldSearch;
 
-    @FindBy(css=".button.search-button")
+    @FindBy(css = ".button.search-button")
     private WebElementFacade searchBtn;
 
-    @FindBy(css=".page-title")
+    @FindBy(css = ".page-title")
     private WebElementFacade getPageTitleSearch;
 
 
-
-    public String getGreetMessage(){
+    public String getGreetMessage() {
         withTimeoutOf(Duration.ofSeconds(5)).waitFor(greetMessage);
         return greetMessage.getText();
     }
 
-    public String getPageTile(){
+    public String getPageTile() {
         return getDriver().getTitle();
 
     }
 
-    public String getSiteUrl(){
+    public String getSiteUrl() {
         return getDriver().getCurrentUrl();
     }
 
-    public boolean seeIfLogoIsDisplayed(){
+    public boolean seeIfLogoIsDisplayed() {
         return pageLogo.isDisplayed();
     }
 
-    public void clickOnLogo(){
+    public void clickOnLogo() {
         pageLogo.click();
     }
 
-    public void clickOnAccountDropdown(){
+    public void clickOnAccountDropdown() {
         accountDropdownButton.click();
     }
+
     public boolean seeIfAccountListIsDIsplayed() {
         return accountDropdownList.isDisplayed();
     }
-    public String seeAccount(){
+
+    public String seeAccount() {
         return accountDropdownButton.getText();
     }
-    public void selectLanguageValue(){
+
+    public void selectLanguageValue() {
         languageDropdown.selectByVisibleText("French");
         Assert.assertThat(languageDropdown.getSelectedVisibleTextValue(), is("French"));
     }
 
-    public int sizeOptionLanguage(){
+    public int sizeOptionLanguage() {
         return optionLanguageDropDown.size();
     }
 
-    public void changeFieldSearch(){
-        insertInFieldSearch.sendKeys("WOMEN");
+    public void changeFieldSearch(String keyword) {
+        insertInFieldSearch.sendKeys(keyword);
 
     }
 
-    public String getSearchField(){
-        System.out.println("sfdwewe"+insertInFieldSearch.getText());
+    public String getSearchField() {
         return insertInFieldSearch.getText();
     }
 
-    public void clickSearchBtn(){
+    public void clickSearchBtn() {
         searchBtn.click();
     }
 
-    public String getPageTitleSearch(){
-        return getPageTitleSearch.getText().toUpperCase();
+    public String getPageTitleSearch() {
+        return getPageTitleSearch.getText().toLowerCase();
 
     }
 
