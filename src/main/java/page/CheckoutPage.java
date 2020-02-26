@@ -43,7 +43,7 @@ public class CheckoutPage extends AbstractPage {
     @FindBy (id = "billing:telephone")
     private WebElementFacade billingPhoneNumber;
 
-    @FindBy (css = "#billing\\:region_id")
+    @FindBy (id = "billing:region_id")
     private WebElementFacade billingState;
 
     @FindBy (id = "billing:country_id")
