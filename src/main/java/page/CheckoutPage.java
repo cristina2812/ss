@@ -84,7 +84,7 @@ public class CheckoutPage extends AbstractPage {
 
     @FindBy (id = "shipping-buttons-container")
     private WebElementFacade continueButtonFromShippingInformation;
-    @FindBy ( css = ".button.btn-proceed-checkout.btn-checkout")
+    @FindBy ( css = ".btn-checkout")
     private WebElementFacade checkOutButton;
 
 
@@ -121,7 +121,7 @@ public class CheckoutPage extends AbstractPage {
     }
 
     public String selectRegion(String region) {
-       region = billingState.selectByValue("291");
+       region = billingState.selectByValue("293");
        return region;
     }
 

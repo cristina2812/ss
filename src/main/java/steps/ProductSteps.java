@@ -41,4 +41,8 @@ public class ProductSteps {
     public void clickAddToCart() {
         productPage.addToCart();
     }
+    @Step
+    public void clickOnSimpleProductPage(){
+        productsListPage.clickOnRandomProductFromList();
+    }
 }
