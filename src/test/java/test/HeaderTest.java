@@ -49,7 +49,7 @@ public class HeaderTest extends BaseTest {
     }
 
     @Test
-    public void headerTitlesTest(){
+    public void headerTitlesTest() {
         headerSteps.checkHeaderTitles();
     }
 
