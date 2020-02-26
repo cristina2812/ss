@@ -25,6 +25,7 @@ public class ProductTest extends BaseTest{
     public void clickOnSimpleProduct(){
         headerSteps.insertKeywordInSearchField("glass");
         productsListPage.clickOnSimpleProductPage();
+        productSteps.clickAddToCart();
     }
 
     @Test
@@ -32,6 +33,7 @@ public class ProductTest extends BaseTest{
         headerSteps.insertKeywordInSearchField("pants");
         productSteps.selectCustomProduct();
         productSteps.getProperties();
+        productSteps.clickAddToCart();
     }
 
 

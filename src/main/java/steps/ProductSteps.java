@@ -37,6 +37,10 @@ public class ProductSteps {
     }
     @Step
     public void selectASimpleProduct(){
-            productsListPage.clickOnSimpleProductPage();
+        productsListPage.clickOnSimpleProductPage();
+    }
+    @Step
+    public void clickAddToCart() {
+        productPage.addToCart();
     }
 }

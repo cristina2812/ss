@@ -19,6 +19,9 @@ public class ProductPage extends AbstractPage {
     @FindBy(css = "body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(1) > a")
     private WebElementFacade specificProduct;
 
+    @FindBy(css=".add-to-cart-buttons")
+    private WebElementFacade addToCartButton;
+
     public int getColorListSize() {
         return colorList.size();
     }
@@ -35,6 +38,9 @@ public class ProductPage extends AbstractPage {
         randomSize.click();
     }
 
+    public void addToCart(){
+        addToCartButton.click();
+    }
 
 
 }
