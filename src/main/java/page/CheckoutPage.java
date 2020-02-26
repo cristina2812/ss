@@ -5,7 +5,10 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 
+import java.sql.DriverManager;
+import java.time.Duration;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @DefaultUrl("http://qa2.dev.evozon.com/checkout/onepage/")
 public class CheckoutPage extends AbstractPage {
@@ -55,7 +58,7 @@ public class CheckoutPage extends AbstractPage {
     @FindBy (id = "billing:use_for_shipping_no")
     private WebElementFacade shipToDifferentAddressOption;
 
-    @FindBy (id = "billing-buttons-container")
+    @FindBy (css = "#billing-buttons-container button[title = 'Continue']")
     private WebElementFacade continueButtonFromBillingInformationCheckout;
 
     @FindBy (id = "shipping:firstname")
@@ -82,10 +85,16 @@ public class CheckoutPage extends AbstractPage {
     @FindBy (id = "shipping:region_id")
     private WebElementFacade shippingRegion;
 
-    @FindBy (id = "shipping-buttons-container")
+    @FindBy ( css = "#shipping-buttons-container button[title = 'Continue']")
     private WebElementFacade continueButtonFromShippingInformation;
     @FindBy ( css = ".btn-checkout")
     private WebElementFacade checkOutButton;
+
+    @FindBy(css = "#opc-shipping > div.step-title > h2")
+    private WebElementFacade shippingMethod;
+
+    @FindBy(css="#billing\\:use_for_shipping_no")
+    private WebElementFacade shipToDifferentOptionButton;
 
 
     public void clickCheckOutAsGuestButton() {
@@ -138,17 +147,23 @@ public class CheckoutPage extends AbstractPage {
     }
 
     public void clickContinueButtonFromBillingInformationCheckout() {
+
+        shipToDifferentOptionButton.click();
         continueButtonFromBillingInformationCheckout.click();
+        withTimeoutOf(Duration.ofSeconds(5)).waitFor(shippingFirstName);
+
     }
 
     public void clickContinueShippingMethod(){
         continueShippingMethodBtn.click();
     }
     public void clickContinuePaymentInformation(){
+        withTimeoutOf(Duration.ofSeconds(20)).waitFor(paymentInformationBtn);
         paymentInformationBtn.click();
     }
 
     public void clickPlaceOrder(){
+        withTimeoutOf(Duration.ofSeconds(20)).waitFor(placeOrderBtn);
         placeOrderBtn.click();
     }
     public void clickCheckOutButton(){
@@ -181,14 +196,12 @@ public class CheckoutPage extends AbstractPage {
         shippingPhoneNumber.type(phoneNumber);
     }
 
-    public String selectRegionInShipping(String region) {
-        region = shippingRegion.selectByValue("4");
-        return region;
+    public void selectRegionInShipping(String region) {
+        shippingRegion.selectByVisibleText(region);
     }
 
-    public String selectCountryInShipping(String country){
-        country = shippingCountry.selectByValue("RO");
-        return country;
+    public void selectCountryInShipping(String country){
+       shippingCountry.selectByValue(country);
     }
 
     public void clickContinueButtonFromShippingInformation() {
