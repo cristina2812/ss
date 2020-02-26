@@ -1,9 +1,8 @@
 package steps;
 
-import net.serenitybdd.core.pages.WebElementFacade;
+
+import models.UserGuest;
 import net.thucydides.core.annotations.Step;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import page.CheckoutPage;
 
 public class CheckoutSteps {
@@ -16,6 +15,29 @@ public class CheckoutSteps {
 
     }
 
-  
+    @Step
+    public void fillRegisterData(UserGuest userGuest){
+       checkoutPage.typeFirstName(userGuest.getFirstName());
+       checkoutPage.typeLastName(userGuest.getLastName());
+       checkoutPage.typeEmail(userGuest.getEmail());
+       checkoutPage.typeCity(userGuest.getCity());
+       checkoutPage.typeCity(userGuest.getZipCode());
+       checkoutPage.typePhoneNumber(userGuest.getTelephone());
+       checkoutPage.selectCountry(userGuest.getSelectCountry());
+       checkoutPage.selectRegion(userGuest.getSelectState());
+       checkoutPage.typeAddress(userGuest.getAddress());
+    }
+
+    @Step
+    public void clickSelectShipToDifferentAddress() {
+        checkoutPage.selectshipToDifferentAddressOption();
+    }
+
+    @Step
+    public void clickOnContinueButtonFromBillingInformationCheckout() {
+        checkoutPage.clickContinueButtonFromBillingInformationCheckout();
+    }
+
+
 
 }
