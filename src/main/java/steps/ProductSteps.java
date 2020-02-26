@@ -4,13 +4,13 @@ package steps;
 import net.thucydides.core.annotations.Step;
 import page.ProductPage;
 
-import net.thucydides.core.annotations.Step;
-import org.junit.Assert;
 import page.HeaderPage;
 import page.ProductsListPage;
 
 public class ProductSteps {
     ProductPage productPage;
+    HeaderPage headerPage;
+    ProductsListPage productsListPage;
 
     @Step
     public void selectProduct() {
@@ -18,12 +18,17 @@ public class ProductSteps {
     }
 
     @Step
+    public void selectCustomProduct() {
+        productsListPage.clickOnRandomProductFromList();
+    }
+
+
+    @Step
     public void getProperties() {
         System.out.println(productPage.getColorListSize());
         productPage.getRandomProperties();
     }
-    HeaderPage headerPage;
-    ProductsListPage productsListPage;
+
 
     @Step
     public void insertKeywordInSearchField(String key) {
