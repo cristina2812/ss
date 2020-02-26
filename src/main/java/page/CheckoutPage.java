@@ -84,6 +84,9 @@ public class CheckoutPage extends AbstractPage {
 
     @FindBy (id = "shipping-buttons-container")
     private WebElementFacade continueButtonFromShippingInformation;
+    @FindBy ( css = ".button.btn-proceed-checkout.btn-checkout")
+    private WebElementFacade checkOutButton;
+
 
     public void clickCheckOutAsGuestButton() {
         checkOutAsGuestButton.click();
@@ -149,6 +152,9 @@ public class CheckoutPage extends AbstractPage {
     public void clickPlaceOrder(){
         placeOrderBtn.click();
     }
+    public void clickCheckOutButton(){
+        checkOutButton.click();
+    }
 
     //////////////////////////////
 
@@ -192,3 +198,6 @@ public class CheckoutPage extends AbstractPage {
 
 
 }
+
+}
+
