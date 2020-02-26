@@ -30,7 +30,7 @@ public class ProductTest extends BaseTest{
     @Test
     public void getColorProperty() {
         headerSteps.insertKeywordInSearchField("pants");
-        productSteps.selectProduct();
+        productSteps.selectCustomProduct();
         productSteps.getProperties();
     }
 
