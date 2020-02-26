@@ -7,8 +7,8 @@ import page.ProductPage;
 public class ProductSteps {
     ProductPage productPage;
 
-//    @Step
-//    public void getColor() {
-//        System.out.println(productPage.getColorListSize());
-//    }
+    @Step
+    public void getColor() {
+        System.out.println(productPage.getColorListSize());
+    }
 }
