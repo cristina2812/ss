@@ -5,7 +5,6 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import page.ProductsListPage;
 import steps.CheckoutSteps;
 import steps.HeaderSteps;
 import steps.ProductSteps;
@@ -42,7 +41,7 @@ public class CheckoutTest extends BaseTest {
         userGuest.setSelectCountry(userGuest.getSelectCountry());
         userGuest.setSelectState(userGuest.getSelectState());
 
-        checkoutSteps.fillRegisterDataInBillingInfo(userGuest);
+        checkoutSteps.fillRegisterDataInBillingInfo();
 
     }
 
@@ -81,7 +80,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void checkoutTest(){
+    public void checkoutTest() throws InterruptedException {
 
         //add custom product
         headerSteps.insertKeywordInSearchField("pants");
@@ -100,26 +99,10 @@ public class CheckoutTest extends BaseTest {
 
         //click checkout as guest
         checkoutSteps.clickCheckoutBtn();
-
         //billing information
 
-        UserGuest userGuest = new UserGuest();
 
-        userGuest.setFirstName("Ionel");
-        userGuest.setLastName("Maria");
-        userGuest.setAddress("Strada Cafelei");
-        userGuest.setEmail("ionel@gmail.com");
-        userGuest.setCity("Cluj");
-        userGuest.setTelephone("123123123");
-        userGuest.setZipCode("1233333333");
-        userGuest.setSelectCountry(userGuest.getSelectCountry());
-        System.out.println(userGuest.getSelectCountry());
-
-        userGuest.setSelectState(userGuest.getSelectState());
-        System.out.println(userGuest.getSelectState());
-
-        checkoutSteps.fillRegisterDataInBillingInfo(userGuest);
-
+        checkoutSteps.fillRegisterDataInBillingInfo();
 
 
     }

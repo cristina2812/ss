@@ -43,7 +43,7 @@ public class CheckoutPage extends AbstractPage {
     @FindBy (id = "billing:telephone")
     private WebElementFacade billingPhoneNumber;
 
-    @FindBy (id = "billing:region_id")
+    @FindBy (css = "#billing\\:region_id")
     private WebElementFacade billingState;
 
     @FindBy (id = "billing:country_id")
@@ -120,14 +120,13 @@ public class CheckoutPage extends AbstractPage {
         billingPhoneNumber.type(phoneNumber);
     }
 
-    public String selectRegion(String region) {
-       region = billingState.selectByValue("293");
-       return region;
+    public void selectRegion(String region) {
+            billingState.selectByVisibleText(region);
     }
 
-    public String selectCountry(String country){
-        country = billingCountry.selectByValue("RO");
-        return country;
+
+    public void selectCountry(String country){
+        billingCountry.selectByValue(country);
     }
 
     public void typeAddress(String address) {
