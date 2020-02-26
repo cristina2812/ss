@@ -48,6 +48,9 @@ public class HeaderPage extends AbstractPage{
     @FindBy(css=".level0.nav-5")
     private WebElementFacade clickOnSpecificTitle;
 
+    @FindBy (css = ".button btn-cart")
+    private WebElementFacade clickToAddtocart;
+
 
     public String getGreetMessage(){
         withTimeoutOf(Duration.ofSeconds(5)).waitFor(greetMessage);
@@ -67,26 +70,28 @@ public class HeaderPage extends AbstractPage{
         return pageLogo.isDisplayed();
     }
 
-    public void clickOnLogo(){
+    public void clickOnLogo() {
         pageLogo.click();
     }
 
-    public void clickOnAccountDropdown(){
+    public void clickOnAccountDropdown() {
         accountDropdownButton.click();
     }
 
     public boolean seeIfAccountListIsDIsplayed() {
         return accountDropdownList.isDisplayed();
     }
-    public String seeAccount(){
+
+    public String seeAccount() {
         return accountDropdownButton.getText();
     }
-    public void selectLanguageValue(){
+
+    public void selectLanguageValue() {
         languageDropdown.selectByVisibleText("French");
         Assert.assertThat(languageDropdown.getSelectedVisibleTextValue(), is("French"));
     }
 
-    public int sizeOptionLanguage(){
+    public int sizeOptionLanguage() {
         return optionLanguageDropDown.size();
     }
 
@@ -95,11 +100,11 @@ public class HeaderPage extends AbstractPage{
 
     }
 
-    public String getSearchField(){
+    public String getSearchField() {
         return insertInFieldSearch.getText();
     }
 
-    public void clickSearchBtn(){
+    public void clickSearchBtn() {
         searchBtn.click();
     }
 

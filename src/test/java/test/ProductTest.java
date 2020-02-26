@@ -4,24 +4,34 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import page.ProductsListPage;
 import steps.HeaderSteps;
 import steps.ProductSteps;
 
+
 @RunWith(SerenityRunner.class)
-public class ProductTest extends BaseTest {
-    @Steps
-    HeaderSteps headerSteps;
+public class ProductTest extends BaseTest{
+
     @Steps
     ProductSteps productSteps;
 
+    @Steps
+    ProductsListPage productsListPage;
+
+    @Steps
+    HeaderSteps headerSteps;
+
     @Test
-    public void searchSimpleProduct() {
+    public void clickOnSimpleProduct(){
         headerSteps.insertKeywordInSearchField("glass");
+        productsListPage.clickOnSimpleProductPage();
     }
 
     @Test
     public void getColorProperty() {
-        productSteps.getColor();
+        headerSteps.insertKeywordInSearchField("pants");
+        productSteps.selectProduct();
+        productSteps.getProperties();
     }
 
 
