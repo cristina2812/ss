@@ -8,15 +8,9 @@ import java.util.Random;
 
 public class ProductsListPage extends AbstractPage {
 
-    @FindBy (id = "product-collection-image-549")
-    private WebElementFacade clickOnSimpleProduct;
-
     @FindBy(css = "div.category-products li.item > a")
     private List<WebElementFacade> randomProductFromList;
 
-    public void clickOnSimpleProductPage() {
-        clickOnSimpleProduct.click();
-    }
 
     public void clickOnRandomProductFromList() {
         Random rand = new Random();
