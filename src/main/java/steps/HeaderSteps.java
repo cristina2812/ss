@@ -54,5 +54,11 @@ public class HeaderSteps {
         Assert.assertTrue(getPageTitleSearch.contains(getInsertInFieldSearch));
     }
 
+    @Step
+    public void checkHeaderTitles(){
+        headerPage.getheaderTitles();
+        headerPage.clickOnSpecificTitle();
+        Assert.assertEquals(headerPage.getSiteUrl(), "http://qa2.dev.evozon.com/sale.html");
+    }
 
 }

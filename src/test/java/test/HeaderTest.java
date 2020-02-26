@@ -48,5 +48,9 @@ public class HeaderTest extends BaseTest {
         headerSteps.insertKeywordInSearchField("woman");
     }
 
+    @Test
+    public void headerTitlesTest(){
+        headerSteps.checkHeaderTitles();
+    }
 
 }
