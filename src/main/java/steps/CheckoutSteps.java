@@ -24,7 +24,7 @@ public class CheckoutSteps {
        checkoutPage.typeLastName(userGuest.getLastName());
        checkoutPage.typeEmail(userGuest.getEmail());
        checkoutPage.typeCity(userGuest.getCity());
-       checkoutPage.typeCity(userGuest.getZipCode());
+       checkoutPage.typeZipCode(userGuest.getZipCode());
        checkoutPage.typePhoneNumber(userGuest.getTelephone());
        checkoutPage.selectCountry(userGuest.getSelectCountry());
        checkoutPage.selectRegion(userGuest.getSelectState());
