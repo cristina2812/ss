@@ -21,7 +21,9 @@ public class ProductTest extends BaseTest {
 
     @Test
     public void getColorProperty() {
-        productSteps.getColor();
+        headerSteps.insertKeywordInSearchField("pants");
+        productSteps.selectProduct();
+        productSteps.getProperties();
     }
 
 

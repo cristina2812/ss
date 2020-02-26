@@ -19,7 +19,7 @@ public class BaseTest {
 	public void setup() {
 		System.out.println("Before test!");
 		webdriver.get(Constants.URL);
-		webdriver.manage().window().maximize();
+//		webdriver.manage().window().maximize();
 		webdriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	}
 

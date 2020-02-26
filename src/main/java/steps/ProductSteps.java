@@ -8,7 +8,15 @@ public class ProductSteps {
     ProductPage productPage;
 
     @Step
-    public void getColor() {
-        System.out.println(productPage.getColorListSize());
+    public void selectProduct() {
+        productPage.selectSpecificProduct();
     }
+
+    @Step
+    public void getProperties() {
+        System.out.println(productPage.getColorListSize());
+        productPage.getRandomProperties();
+    }
+
+
 }
