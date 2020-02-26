@@ -5,7 +5,6 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
 
 import java.time.Duration;
-import java.util.Iterator;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
