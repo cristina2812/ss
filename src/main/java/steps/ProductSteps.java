@@ -12,10 +12,6 @@ public class ProductSteps {
     HeaderPage headerPage;
     ProductsListPage productsListPage;
 
-    @Step
-    public void selectProduct() {
-        productPage.selectSpecificProduct();
-    }
 
     @Step
     public void selectCustomProduct() {
@@ -35,10 +31,7 @@ public class ProductSteps {
         headerPage.changeFieldSearch(key);
         headerPage.clickSearchBtn();
     }
-    @Step
-    public void selectASimpleProduct(){
-        productsListPage.clickOnSimpleProductPage();
-    }
+
     @Step
     public void clickAddToCart() {
         productPage.addToCart();

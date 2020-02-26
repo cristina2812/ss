@@ -24,7 +24,7 @@ public class ProductTest extends BaseTest{
     @Test
     public void clickOnSimpleProduct(){
         headerSteps.insertKeywordInSearchField("glass");
-        productsListPage.clickOnSimpleProductPage();
+        productsListPage.clickOnRandomProductFromList();
         productSteps.clickAddToCart();
     }
 

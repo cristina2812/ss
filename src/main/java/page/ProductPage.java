@@ -16,8 +16,6 @@ public class ProductPage extends AbstractPage {
     @FindBy(css = "ul#configurable_swatch_size li")
     private List<WebElementFacade> customSize;
 
-    @FindBy(css = "body > div > div > div.main-container.col3-layout > div > div.col-wrapper > div.col-main > div.category-products > ul > li:nth-child(1) > a")
-    private WebElementFacade specificProduct;
 
     @FindBy(css=".add-to-cart-buttons")
     private WebElementFacade addToCartButton;
@@ -26,9 +24,7 @@ public class ProductPage extends AbstractPage {
         return colorList.size();
     }
 
-    public void selectSpecificProduct() {
-        specificProduct.click();
-    }
+
 
     public void getRandomProperties() {
         Random rand = new Random();
