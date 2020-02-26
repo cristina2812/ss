@@ -1,8 +1,10 @@
 package steps;
 
-
-import models.UserGuest;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import page.CheckoutPage;
 
 public class CheckoutSteps {
@@ -32,6 +34,16 @@ public class CheckoutSteps {
     public void clickSelectShipToDifferentAddress() {
         checkoutPage.selectshipToDifferentAddressOption();
     }
+    @Step
+    public void clickShippingMethod(){
+        checkoutPage.clickRadioButtonFreeShipping();
+        checkoutPage.clickContinueShippingMethod();
+    }
+
+    @Step
+    public void clickPaymentInformation(){
+        checkoutPage.clickContinuePaymentInformation();
+    }
 
     @Step
     public void clickOnContinueButtonFromBillingInformationCheckout() {
@@ -39,5 +51,10 @@ public class CheckoutSteps {
     }
 
 
+
+    @Step
+    public void clickOrderReview(){
+        checkoutPage.clickPlaceOrder();
+    }
 
 }
