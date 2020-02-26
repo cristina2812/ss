@@ -2,14 +2,26 @@ package test;
 
 import models.UserGuest;
 import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import page.ProductsListPage;
 import steps.CheckoutSteps;
+import steps.HeaderSteps;
+import steps.ProductSteps;
 
 @RunWith(SerenityRunner.class)
 public class CheckoutTest extends BaseTest {
 
+    @Steps
     CheckoutSteps checkoutSteps;
+
+    @Steps
+    ProductSteps productSteps;
+
+    @Steps
+    HeaderSteps headerSteps;
+
 
     @Test
     public void checkOutAsguest() {
@@ -66,5 +78,49 @@ public class CheckoutTest extends BaseTest {
     @Test
     public void testClickOnContinueButtonShippingInformation() {
         checkoutSteps.clickOnContinueButtonFromShippingInformation();
+    }
+
+    @Test
+    public void checkoutTest(){
+
+        //add custom product
+        headerSteps.insertKeywordInSearchField("pants");
+        productSteps.selectCustomProduct();
+        productSteps.getProperties();
+        productSteps.clickAddToCart();
+
+
+        //add simple product
+        headerSteps.insertKeywordInSearchField("glass");
+        productSteps.clickOnSimpleProductPage();
+        productSteps.clickAddToCart();
+
+        //click checkout button
+        checkoutSteps.clickCheckOutButton();
+
+        //click checkout as guest
+        checkoutSteps.clickCheckoutBtn();
+
+        //billing information
+
+        UserGuest userGuest = new UserGuest();
+
+        userGuest.setFirstName("Ionel");
+        userGuest.setLastName("Maria");
+        userGuest.setAddress("Strada Cafelei");
+        userGuest.setEmail("ionel@gmail.com");
+        userGuest.setCity("Cluj");
+        userGuest.setTelephone("123123123");
+        userGuest.setZipCode("1233333333");
+        userGuest.setSelectCountry(userGuest.getSelectCountry());
+        System.out.println(userGuest.getSelectCountry());
+
+        userGuest.setSelectState(userGuest.getSelectState());
+        System.out.println(userGuest.getSelectState());
+
+        checkoutSteps.fillRegisterDataInBillingInfo(userGuest);
+
+
+
     }
 }
