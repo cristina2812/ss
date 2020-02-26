@@ -199,5 +199,3 @@ public class CheckoutPage extends AbstractPage {
 
 }
 
-}
-
