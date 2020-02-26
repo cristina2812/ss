@@ -3,10 +3,13 @@ package steps;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import page.HeaderPage;
+import page.ProductPage;
+import page.ProductsListPage;
 
 public class HeaderSteps {
 
     HeaderPage headerPage;
+    ProductsListPage productsListPage;
 
     @Step
     public void showPageTitle(String title){
@@ -59,6 +62,11 @@ public class HeaderSteps {
         headerPage.getheaderTitles();
         headerPage.clickOnSpecificTitle();
         Assert.assertEquals(headerPage.getSiteUrl(), "http://qa2.dev.evozon.com/sale.html");
+    }
+    @Step
+    public void selectASimpleProduct(){
+        productsListPage.clickOnSimpleProductPage();
+
     }
 
 }

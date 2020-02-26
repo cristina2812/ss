@@ -4,7 +4,9 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import page.ProductsListPage;
 import steps.HeaderSteps;
+import steps.ProductSteps;
 
 
 @RunWith(SerenityRunner.class)
@@ -12,6 +14,7 @@ public class HeaderTest extends BaseTest {
 
     @Steps
     HeaderSteps headerSteps;
+
 
     @Test
     public void getPageTitleTest() {
@@ -53,4 +56,8 @@ public class HeaderTest extends BaseTest {
         headerSteps.checkHeaderTitles();
     }
 
+
+
+
 }
+
