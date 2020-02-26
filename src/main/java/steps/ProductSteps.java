@@ -39,4 +39,12 @@ public class ProductSteps {
         productsListPage.getRandomProduct();
         productPage.getRandomProperties();
     }
+    @Step
+    public void selectASimpleProduct(){
+        productsListPage.clickOnSimpleProductPage();
+    }
+    @Step
+    public void clickAddToCart() {
+        productPage.addToCart();
+    }
 }
