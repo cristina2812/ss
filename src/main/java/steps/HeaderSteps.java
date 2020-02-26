@@ -66,7 +66,6 @@ public class HeaderSteps {
     @Step
     public void selectASimpleProduct(){
         productsListPage.clickOnSimpleProductPage();
-
     }
 
 }

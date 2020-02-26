@@ -54,9 +54,16 @@ public class CheckoutSteps {
         checkoutPage.clickContinueButtonFromBillingInformationCheckout();
     }
 
+
+
     @Step
     public void clickOrderReview(){
         checkoutPage.clickPlaceOrder();
+    }
+
+    @Step
+    public void clickCheckOutButton(){
+        checkoutPage.clickCheckOutButton();
     }
 
     @Step
@@ -77,4 +84,3 @@ public class CheckoutSteps {
         checkoutPage.clickContinueButtonFromShippingInformation();
     }
 }
-
