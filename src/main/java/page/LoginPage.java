@@ -3,6 +3,8 @@ package page;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 
+import java.time.Duration;
+
 public class LoginPage extends AbstractPage{
 
 
@@ -17,6 +19,9 @@ public class LoginPage extends AbstractPage{
 
     @FindBy(css = ".f-left")
     public WebElementFacade forgotYourPassword;
+
+    @FindBy(css = ".error-msg")
+    public WebElementFacade invalidPassOrEmailMessage;
 
 
     public void clickLoginButton(){
@@ -36,6 +41,10 @@ public class LoginPage extends AbstractPage{
         passwordField.type(password);
     }
 
+    public String getGreetMessage(){
+        withTimeoutOf(Duration.ofSeconds(5)).waitFor(invalidPassOrEmailMessage);
+        return invalidPassOrEmailMessage.getText();
+    }
 
 
 }
