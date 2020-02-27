@@ -4,11 +4,13 @@ import factory.UserFactory;
 import models.LoginUser;
 import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
+import page.HeaderPage;
 import page.LoginPage;
 
 public class LoginSteps {
 
     LoginPage loginPage;
+    HeaderPage headerPage;
 
     @Step
     public void clickOnLoginButton(){
@@ -52,6 +54,13 @@ public class LoginSteps {
         Assert.assertTrue(messageSuccess.contains(" you will receive an email"));
     }
 
+    @Step
+    public void messageLogoutSuccess(){
+
+        String messageLogoutSuccess = loginPage.getLogoutMessage();
+        Assert.assertEquals("YOU ARE NOW LOGGED OUT", messageLogoutSuccess);
+    }
+
 
     @Step
     public void forgotPassword(){
@@ -67,5 +76,11 @@ public class LoginSteps {
     @Step
     public void clickSubmitForgotPass(){
         loginPage.submitForgotPass();
+    }
+
+    @Step
+    public void clickLogoutBtn(){
+        headerPage.clickOnAccountDropdown();
+        loginPage.clicklogout();
     }
 }

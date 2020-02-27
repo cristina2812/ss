@@ -40,6 +40,8 @@ public class CheckoutSteps {
        checkoutPage.typeAddress(userGuest.getAddress());
     }
 
+
+
     @Step
     public void clickSelectShipToDifferentAddress() {
         checkoutPage.selectshipToDifferentAddressOption();

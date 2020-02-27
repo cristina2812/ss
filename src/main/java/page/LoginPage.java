@@ -32,6 +32,11 @@ public class LoginPage extends AbstractPage{
     @FindBy(css = ".success-msg")
     private WebElementFacade messageSuccessForgotPass;
 
+    @FindBy(css = "#header-account > div > ul > li.last")
+    private WebElementFacade logoutBtn;
+
+    @FindBy(css = ".page-title")
+    private WebElementFacade messageLogoutSuccess;
 
     public void clickLoginButton(){
         loginButton.click();
@@ -58,6 +63,15 @@ public class LoginPage extends AbstractPage{
     public String getGreetMessage(){
         withTimeoutOf(Duration.ofSeconds(5)).waitFor(invalidPassOrEmailMessage);
         return invalidPassOrEmailMessage.getText();
+    }
+
+    public String getLogoutMessage(){
+        withTimeoutOf(Duration.ofSeconds(7)).waitFor(messageLogoutSuccess);
+        return messageLogoutSuccess.getText();
+    }
+
+    public void clicklogout(){
+        logoutBtn.click();
     }
 
     public String getMessageSuccessForgotPass(){

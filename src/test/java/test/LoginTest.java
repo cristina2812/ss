@@ -35,6 +35,15 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
+    public void loginInvalidPasswordAndInvaliddEmailTest(){
+        headerSteps.clickLoginBtn();
+        loginSteps.fillEmailAddressData("cristina9723@yahoo.com");
+        loginSteps.fillPasswordData("12345678");
+        loginSteps.clickOnLoginButton();
+        loginSteps.messagePassworOrEmailInvalid();
+    }
+
+    @Test
     public void  forgotPasswordTest(){
         headerSteps.clickLoginBtn();
         loginSteps.forgotPassword();
@@ -42,6 +51,17 @@ public class LoginTest extends BaseTest {
         loginSteps.clickSubmitForgotPass();
         loginSteps.messageSuccessForgotPass();
     }
+
+    @Test
+    public void checkLogOutBtnTest(){
+        headerSteps.clickLoginBtn();
+        loginSteps.fillLoginData();
+        loginSteps.clickOnLoginButton();
+        loginSteps.clickLogoutBtn();
+        loginSteps.messageLogoutSuccess();
+    }
+
+
 
 
 }
