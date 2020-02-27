@@ -23,7 +23,26 @@ public class WishlistTest extends BaseTest{
 
     @Test
     public void addProductToWishlist() {
-        wishlistSteps.loginAndSelectProduct();
+        wishlistSteps.loginOnSiteStep();
+       String productName = wishlistSteps.selectRandomProduct();
+        wishlistSteps.checkIfProductWasAddedInWishlist(productName);
     }
+
+    @Test
+    public void addProductInCartFromWishlost(){
+        wishlistSteps.loginOnSiteStep();
+        wishlistSteps.selectRandomProduct();
+        wishlistSteps.addProductInWishlistCart();
+
+    }
+
+    @Test
+    public void deleteProductFromWishlist(){
+        wishlistSteps.loginOnSiteStep();
+        wishlistSteps.selectRandomProduct();
+        wishlistSteps.deleteProductFromWishlist();
+    }
+
+
 
 }
