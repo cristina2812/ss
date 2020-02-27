@@ -64,7 +64,16 @@ public class CheckoutSteps {
 
     }
 
+    @Step
+    public void clickOnContinueButtonCheckoutlogin() {
+        checkoutPage.clickShipToThisAddress();
 
+    }
+
+    @Step
+    public  void clickOnContinueShippingButton(){
+        checkoutPage.clickContinueShippingInfo();
+    }
 
     @Step
     public void clickOrderReview(){

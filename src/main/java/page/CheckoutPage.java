@@ -96,6 +96,16 @@ public class CheckoutPage extends AbstractPage {
     @FindBy(css="#billing\\:use_for_shipping_no")
     private WebElementFacade shipToDifferentOptionButton;
 
+    @FindBy(css ="#billing\\:use_for_shipping_yes")
+    private WebElementFacade shipToThisAddressLogin;
+
+    @FindBy(css = "#billing-buttons-container > button")
+    private WebElementFacade continueButtonShippingLogin;
+
+    @FindBy(css ="#opc-shipping > div.step-title > h2")
+    private WebElementFacade continueShippingInfoBtn;
+
+
 
     public void clickCheckOutAsGuestButton() {
         checkOutAsGuestButton.click();
@@ -153,6 +163,16 @@ public class CheckoutPage extends AbstractPage {
         withTimeoutOf(Duration.ofSeconds(5)).waitFor(shippingFirstName);
 
     }
+    public void clickShipToThisAddress() {
+
+        shipToThisAddressLogin.click();
+        continueButtonShippingLogin.click();
+
+    }
+
+    public void clickContinueShippingInfo(){
+        continueShippingInfoBtn.click();
+    }
 
     public void clickContinueShippingMethod(){
         continueShippingMethodBtn.click();
@@ -205,7 +225,8 @@ public class CheckoutPage extends AbstractPage {
     }
 
     public void clickContinueButtonFromShippingInformation() {
-        continueButtonFromShippingInformation.click();
+        withTimeoutOf(Duration.ofSeconds(20)).waitFor(continueShippingInfoBtn);
+        continueShippingInfoBtn.click();
     }
 
 
