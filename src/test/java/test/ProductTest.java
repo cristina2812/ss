@@ -10,8 +10,7 @@ import steps.ProductSteps;
 
 
 @RunWith(SerenityRunner.class)
-public class ProductTest extends BaseTest{
-
+public class ProductTest extends BaseTest {
     @Steps
     ProductSteps productSteps;
 
@@ -29,9 +28,9 @@ public class ProductTest extends BaseTest{
     }
 
     @Test
-    public void getRandomCustomProduct() {
-        headerSteps.insertKeywordInSearchField("pants");
-        productSteps.selectCustomProduct();
+    public void getRandomCustomProduct() throws InterruptedException {
+//        headerSteps.insertKeywordInSearchField("pants");
+//        productSteps.selectCustomProduct();
         productSteps.getProperties();
         productSteps.clickAddToCart();
     }

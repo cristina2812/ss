@@ -1,6 +1,7 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+
 import org.junit.Assert;
 import page.HeaderPage;
 import page.ProductPage;
@@ -59,7 +60,7 @@ public class HeaderSteps {
 
     @Step
     public void checkHeaderTitles(){
-        headerPage.getheaderTitles();
+        headerPage.getHeaderTitles();
         headerPage.clickOnSpecificTitle();
         Assert.assertEquals(headerPage.getSiteUrl(), "http://qa2.dev.evozon.com/sale.html");
     }

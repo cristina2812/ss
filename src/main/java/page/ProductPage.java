@@ -10,6 +10,7 @@ import java.util.Random;
 
 @DefaultUrl("http://qa2.dev.evozon.com/khaki-bowery-chino-pants.html")
 public class ProductPage extends AbstractPage {
+
     @FindBy(css = "ul#configurable_swatch_color li")
     private List<WebElementFacade> colorList;
 

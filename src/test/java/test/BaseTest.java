@@ -1,11 +1,9 @@
 package test;
 
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
 import org.junit.Before;
-import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 
 
@@ -22,13 +20,13 @@ public class BaseTest {
 		System.out.println("Before test!");
 		webdriver.get(Constants.URL);
 //		webdriver.manage().window().maximize();
-		webdriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		webdriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	}
 
-//	@After
-//	public void tearDown() {
-//		System.out.println("After test!");
-//		webdriver.quit();
-//	}
+	@After
+	public void tearDown() {
+		System.out.println("After test!");
+		webdriver.quit();
+	}
 
 }

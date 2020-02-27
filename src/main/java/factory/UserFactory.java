@@ -19,6 +19,7 @@ public class UserFactory {
         return userGuest;
     }
 
+
     public LoginUser loginUser(){
         LoginUser loginUser = new LoginUser();
         loginUser.setEmailAddress("cristina_adam97@yahoo.com");
@@ -26,4 +27,6 @@ public class UserFactory {
 
         return loginUser;
     }
+
+
 }

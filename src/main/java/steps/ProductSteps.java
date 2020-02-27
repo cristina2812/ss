@@ -13,7 +13,6 @@ public class ProductSteps {
     ProductsListPage productsListPage;
 
 
-
     @Step
     public void selectCustomProduct() {
         productsListPage.clickOnRandomProductFromList();

@@ -83,6 +83,7 @@ public class HeaderPage extends AbstractPage{
     private List<WebElementFacade>  getVipOptions;
 
 
+
     public String getGreetMessage(){
         withTimeoutOf(Duration.ofSeconds(5)).waitFor(greetMessage);
         return greetMessage.getText();
@@ -149,7 +150,7 @@ public class HeaderPage extends AbstractPage{
 
     }
 
-    public void getheaderTitles() {
+    public void getHeaderTitles() {
         for (WebElementFacade list : getheaderTitles) {
             System.out.println(list.getText());
         }
@@ -160,7 +161,7 @@ public class HeaderPage extends AbstractPage{
         clickOnSpecificTitle.click();
     }
 
-    public void clickOnLoginHeader() {
+    public void clickOnLoginHeader(){
         loginHeaderBtn.click();
     }
 
@@ -172,10 +173,23 @@ public class HeaderPage extends AbstractPage{
     public void checkWomenSubcategory(){
         Actions actions = new Actions(getDriver());
         WebElement womenCategory = getDriver().findElement(By.xpath("//ol/li/a[text()='Women']"));
+        System.out.println("efewfwe");
         actions.moveToElement(womenCategory).build().perform();
+        System.out.println("asdf");
         for (WebElementFacade list: getWomenSubcategoryOptions){
             System.out.println(list.getText());
         }
+
+    }
+
+    public void clickMenSubcategory() {
+        Actions actions = new Actions(getDriver());
+        WebElement menCategory = getDriver().findElement(By.cssSelector("li.level0.nav-2.parent"));
+        actions.moveToElement(menCategory);
+        WebElement menSubCategory = getDriver().findElement(By.cssSelector(".level1.nav-2-2"));
+        actions.moveToElement(menSubCategory).build().perform();
+        actions.click().build().perform();
+
 
     }
     public void checkMenSubcategory(){

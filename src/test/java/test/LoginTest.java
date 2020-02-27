@@ -26,11 +26,42 @@ public class LoginTest extends BaseTest {
     }
 
     @Test
-    public void loginInvalidPasswordAndValidEmail(){
+    public void loginInvalidPasswordAndValidEmailTest(){
         headerSteps.clickLoginBtn();
         loginSteps.fillEmailAddressData("cristina_adam97@yahoo.com");
         loginSteps.fillPasswordData("12345678");
         loginSteps.clickOnLoginButton();
         loginSteps.messagePassworOrEmailInvalid();
     }
+
+    @Test
+    public void loginInvalidPasswordAndInvaliddEmailTest(){
+        headerSteps.clickLoginBtn();
+        loginSteps.fillEmailAddressData("cristina9723@yahoo.com");
+        loginSteps.fillPasswordData("12345678");
+        loginSteps.clickOnLoginButton();
+        loginSteps.messagePassworOrEmailInvalid();
+    }
+
+    @Test
+    public void  forgotPasswordTest(){
+        headerSteps.clickLoginBtn();
+        loginSteps.forgotPassword();
+        loginSteps.fillEmailAddressForgotPass("cristina_adam97@yahoo.com");
+        loginSteps.clickSubmitForgotPass();
+        loginSteps.messageSuccessForgotPass();
+    }
+
+    @Test
+    public void checkLogOutBtnTest(){
+        headerSteps.clickLoginBtn();
+        loginSteps.fillLoginData();
+        loginSteps.clickOnLoginButton();
+        loginSteps.clickLogoutBtn();
+        loginSteps.messageLogoutSuccess();
+    }
+
+
+
+
 }
