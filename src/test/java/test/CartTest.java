@@ -1,9 +1,9 @@
 package test;
 
 
+import models.Product;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
-import okhttp3.Cookie;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import page.ProductPage;
@@ -24,7 +24,8 @@ public class CartTest extends BaseTest {
     @Steps
     ProductsListPage productsListPage;
 
-    ProductPage productPage;
+    Product product;
+
 
     @Test
     public void clickOnCartIconBtn() {
@@ -40,15 +41,13 @@ public class CartTest extends BaseTest {
 
     @Test
     public void checkIfCartContainsProducts() {
+        product = new Product();
         headerSteps.insertKeywordInSearchField("glass");
         productsListPage.clickOnRandomProductFromList();
-        productSteps.verifyCartProductName();
+        product.setName(productSteps.getProductName());
         productSteps.clickAddToCart();
         cartSteps.checkProductNameFromCartPage();
-        cartSteps.checkProductNameFromCartContainsInitialName();
+        cartSteps.checkProductNameFromCartContainsInitialName(product.getName());
     }
-
-
-
 
 }

@@ -4,7 +4,6 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 
-import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 
@@ -41,7 +40,6 @@ public class ProductPage extends AbstractPage {
     }
 
     public String getProductName() {
-        withTimeoutOf(Duration.ofSeconds(3)).waitFor(productName);
         String name = productName.getText();
         return name;
     }

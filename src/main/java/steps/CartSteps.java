@@ -3,12 +3,11 @@ package steps;
 import net.thucydides.core.annotations.Step;
 import page.CartPage;
 import org.junit.Assert;
-import page.ProductPage;
 
 public class CartSteps {
 
     CartPage cartPage;
-    ProductPage productPage;
+
 
     @Step
     public void clickOnCart() {
@@ -24,6 +23,7 @@ public class CartSteps {
     public void checkCartWrapperMessage(String message) {
         Assert.assertTrue(cartPage.getCartWrapperMessageForZeroProducts().contains(message));
     }
+
     @Step
     public void checkCartPageTitle(String title) {
         Assert.assertTrue(cartPage.getCartPageTitle().contains(title));
@@ -31,20 +31,12 @@ public class CartSteps {
 
     @Step
     public void checkProductNameFromCartPage() {
-        Assert.assertTrue(cartPage.getProductNameFromCartPage() != null);
-        System.out.println(cartPage.getProductNameFromCartPage());
+        Assert.assertTrue(cartPage.getCartProductName() != null);
     }
 
     @Step
-    public void checkProductNameFromCartContainsInitialName() {
-        String name = productPage.getProductName();
-        try {
-            System.out.println("iaaa");
-            Assert.assertTrue(cartPage.getProductNameFromCartPage().contains(name));
-            System.out.println("heeeeeeeeeeeeeeeeelp");
-        }
-        catch (AssertionError error){
-            System.out.println("exceptieeeeeee");
-        }
+    public void checkProductNameFromCartContainsInitialName(String name) {
+        String actualName = cartPage.getCartProductName();
+        Assert.assertTrue(actualName.toLowerCase().contains(name.toLowerCase()));
     }
 }

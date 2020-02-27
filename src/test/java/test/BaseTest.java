@@ -21,20 +21,14 @@ public class BaseTest {
 	public void setup() {
 		System.out.println("Before test!");
 		webdriver.get(Constants.URL);
-
-		Set<Cookie> allCookies =  webdriver.manage().getCookies();
-		for(Cookie cookie: allCookies) {
-			webdriver.manage().addCookie(cookie);
-		}
-
 //		webdriver.manage().window().maximize();
-		webdriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		webdriver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
-	@After
-	public void tearDown() {
-		System.out.println("After test!");
-		webdriver.quit();
-	}
+//	@After
+//	public void tearDown() {
+//		System.out.println("After test!");
+//		webdriver.quit();
+//	}
 
 }

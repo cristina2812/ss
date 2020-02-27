@@ -40,7 +40,7 @@ public class ProductTest extends BaseTest{
     public void getProductNameFromPage() {
         headerSteps.insertKeywordInSearchField("glass");
         productSteps.selectCustomProduct();
-        productSteps.verifyCartProductName();
+        productSteps.getProductName();
     }
 
 

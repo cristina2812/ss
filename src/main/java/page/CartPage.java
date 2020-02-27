@@ -3,8 +3,6 @@ package page;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 
-import java.time.Duration;
-
 public class CartPage extends AbstractPage {
 
     @FindBy(css = "#header > div > div.skip-links > div > div > a")
@@ -38,9 +36,8 @@ public class CartPage extends AbstractPage {
         return  cartPageTitle.getText();
     }
 
-    public String getProductNameFromCartPage() {
-        waitFor(productNameFromCartPage);
-        return productNameFromCartPage.getText().toUpperCase();
+    public String getCartProductName() {
+        return productNameFromCartPage.getText();
     }
 
 }

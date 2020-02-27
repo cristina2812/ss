@@ -13,6 +13,7 @@ public class ProductSteps {
     ProductsListPage productsListPage;
 
 
+
     @Step
     public void selectCustomProduct() {
         productsListPage.clickOnRandomProductFromList();
@@ -43,9 +44,9 @@ public class ProductSteps {
     }
 
     @Step
-    public void verifyCartProductName() {
+    public String getProductName() {
         Assert.assertTrue(productPage.getProductName()!=null);
-        System.out.println(productPage.getProductName());
-        //Assert.assertNotNull(productPage.getProductName());
+        String name = productPage.getProductName();
+        return name;
     }
 }
