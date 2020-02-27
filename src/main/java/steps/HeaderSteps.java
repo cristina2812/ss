@@ -63,5 +63,21 @@ public class HeaderSteps {
         headerPage.clickOnSpecificTitle();
         Assert.assertEquals(headerPage.getSiteUrl(), "http://qa2.dev.evozon.com/sale.html");
     }
+    @Step
+    public void checkMainNavigationOptions(){
+        headerPage.getMainNavigationOptions();
+    }
+    @Step
+    public void checkWomenSubcategoryStep(){
+        headerPage.checkWomenSubcategory();
+    }
+
+
+    @Step
+    public void clickLoginBtn(){
+        headerPage.clickOnAccountDropdown();
+        headerPage.clickOnLoginHeader();
+    }
+
 
 }
