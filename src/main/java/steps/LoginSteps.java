@@ -27,4 +27,15 @@ public class LoginSteps {
         loginPage.typeEmailAddress(loginUser.getEmailAddress());
         loginPage.typePassword(loginUser.getPassword());
     }
+
+    @Step
+    public void fillEmailAddressData(String emailAddress){
+        loginPage.typeEmailAddress(emailAddress);
+    }
+
+    @Step
+    public void  fillPasswordData(String password){
+        loginPage.typePassword(password);
+    }
+
 }

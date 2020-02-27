@@ -18,11 +18,15 @@ public class LoginTest extends BaseTest {
 
 
     @Test
-    public void loginTest(){
+    public void loginValidEmailAndPasswordTest(){
         headerSteps.clickLoginBtn();
         loginSteps.fillLoginData();
         loginSteps.clickOnLoginButton();
 
+    }
+
+    @Test
+    public void loginInvalidPasswordAndValidEmail(){
 
     }
 }
