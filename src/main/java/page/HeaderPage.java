@@ -8,12 +8,10 @@ import org.openqa.selenium.By;
 import java.time.Duration;
 import java.util.List;
 
-import net.serenitybdd.core.pages.WebElementFacade;
-import net.thucydides.core.pages.PageObject;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import javax.swing.*;
 
 import static org.hamcrest.CoreMatchers.is;
 
@@ -151,7 +149,6 @@ public class HeaderPage extends AbstractPage{
         loginHeaderBtn.click();
     }
 
-}
     public void getMainNavigationOptions(){
         for (WebElementFacade list: getMainNavigationOptions){
             System.out.println(list.getText());
