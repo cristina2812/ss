@@ -1,5 +1,6 @@
 package factory;
 
+import models.LoginUser;
 import models.UserGuest;
 
 public class UserFactory {
@@ -16,5 +17,13 @@ public class UserFactory {
         userGuest.setSelectCountry("RO");
         userGuest.setSelectState("Cluj");
         return userGuest;
+    }
+
+    public LoginUser loginUser(){
+        LoginUser loginUser = new LoginUser();
+        loginUser.setEmailAddress("cristina_adam97@yahoo.com");
+        loginUser.setPassword("123456");
+
+        return loginUser;
     }
 }
