@@ -16,7 +16,6 @@ import org.openqa.selenium.interactions.Actions;
 import javax.swing.*;
 
 import static org.hamcrest.CoreMatchers.is;
-//import static sun.security.ssl.InputRecord.extract;
 
 
 public class HeaderPage extends AbstractPage{
@@ -67,6 +66,9 @@ public class HeaderPage extends AbstractPage{
     private List<WebElementFacade> getWomenSubcategoryOptions;
 
 
+    @FindBy (css = "#header-account > div > ul > li.last > a")
+    private WebElementFacade loginHeaderBtn;
+
 
     public String getGreetMessage(){
         withTimeoutOf(Duration.ofSeconds(5)).waitFor(greetMessage);
@@ -79,22 +81,27 @@ public class HeaderPage extends AbstractPage{
     }
 
     public String getSiteUrl(){
+
         return getDriver().getCurrentUrl();
     }
 
     public boolean seeIfLogoIsDisplayed(){
+
         return pageLogo.isDisplayed();
     }
 
     public void clickOnLogo() {
+
         pageLogo.click();
     }
 
     public void clickOnAccountDropdown() {
+
         accountDropdownButton.click();
     }
 
     public boolean seeIfAccountListIsDIsplayed() {
+
         return accountDropdownList.isDisplayed();
     }
 
@@ -136,9 +143,15 @@ public class HeaderPage extends AbstractPage{
     }
 
     public void clickOnSpecificTitle(){
+
         clickOnSpecificTitle.click();
     }
 
+    public void clickOnLoginHeader(){
+        loginHeaderBtn.click();
+    }
+
+}
     public void getMainNavigationOptions(){
         for (WebElementFacade list: getMainNavigationOptions){
             System.out.println(list.getText());

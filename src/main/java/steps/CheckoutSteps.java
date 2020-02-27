@@ -1,5 +1,6 @@
 package steps;
 
+import factory.UserFactory;
 import models.UserGuest;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.Step;
@@ -9,9 +10,12 @@ import org.openqa.selenium.WebElement;
 import page.CheckoutPage;
 
 public class CheckoutSteps {
-
     CheckoutPage checkoutPage;
 
+
+    public CheckoutSteps(){
+
+    }
     @Step
     public void clickCheckoutBtn() {
         checkoutPage.clickCheckOutAsGuestButton();
@@ -19,7 +23,10 @@ public class CheckoutSteps {
     }
 
     @Step
-    public void fillRegisterDataInBillingInfo (UserGuest userGuest){
+    public void fillRegisterDataInBillingInfo (){
+       UserFactory  userFactory = new UserFactory();
+       UserGuest userGuest = userFactory.getUser();
+
        checkoutPage.typeFirstName(userGuest.getFirstName());
        checkoutPage.typeLastName(userGuest.getLastName());
        checkoutPage.typeEmail(userGuest.getEmail());
@@ -50,6 +57,7 @@ public class CheckoutSteps {
     @Step
     public void clickOnContinueButtonFromBillingInformationCheckout() {
         checkoutPage.clickContinueButtonFromBillingInformationCheckout();
+
     }
 
 
@@ -65,7 +73,10 @@ public class CheckoutSteps {
     }
 
     @Step
-    public void fillRegisterDataInShippingInformation (UserGuest userGuest){
+    public void fillRegisterDataInShippingInformation (){
+
+        UserFactory  userFactory = new UserFactory();
+        UserGuest userGuest = userFactory.getUser();
 
         checkoutPage.typeFirstNameInShipping(userGuest.getFirstName());
         checkoutPage.typeLastNameInShipping(userGuest.getLastName());

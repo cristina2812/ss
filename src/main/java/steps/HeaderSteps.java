@@ -73,4 +73,11 @@ public class HeaderSteps {
     }
 
 
+    @Step
+    public void clickLoginBtn(){
+        headerPage.clickOnAccountDropdown();
+        headerPage.clickOnLoginHeader();
+    }
+
+
 }
