@@ -5,7 +5,6 @@ import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import page.ProductsListPage;
 import steps.CheckoutSteps;
 import steps.HeaderSteps;
 import steps.ProductSteps;
@@ -42,7 +41,7 @@ public class CheckoutTest extends BaseTest {
         userGuest.setSelectCountry(userGuest.getSelectCountry());
         userGuest.setSelectState(userGuest.getSelectState());
 
-        checkoutSteps.fillRegisterDataInBillingInfo(userGuest);
+        checkoutSteps.fillRegisterDataInBillingInfo();
 
     }
 
@@ -71,7 +70,7 @@ public class CheckoutTest extends BaseTest {
         anotherUserGuest.setSelectCountry(anotherUserGuest.getSelectCountry());
         anotherUserGuest.setSelectState(anotherUserGuest.getSelectState());
 
-        checkoutSteps.fillRegisterDataInShippingInformation(anotherUserGuest);
+        checkoutSteps.fillRegisterDataInShippingInformation();
 
     }
 
@@ -81,7 +80,7 @@ public class CheckoutTest extends BaseTest {
     }
 
     @Test
-    public void checkoutTest(){
+    public void checkoutTest() throws InterruptedException {
 
         //add custom product
         headerSteps.insertKeywordInSearchField("pants");
@@ -100,26 +99,20 @@ public class CheckoutTest extends BaseTest {
 
         //click checkout as guest
         checkoutSteps.clickCheckoutBtn();
-
         //billing information
+        checkoutSteps.fillRegisterDataInBillingInfo();
 
-        UserGuest userGuest = new UserGuest();
+        //click continue billing information
+        checkoutSteps.clickOnContinueButtonFromBillingInformationCheckout();
 
-        userGuest.setFirstName("Ionel");
-        userGuest.setLastName("Maria");
-        userGuest.setAddress("Strada Cafelei");
-        userGuest.setEmail("ionel@gmail.com");
-        userGuest.setCity("Cluj");
-        userGuest.setTelephone("123123123");
-        userGuest.setZipCode("1233333333");
-        userGuest.setSelectCountry(userGuest.getSelectCountry());
-        System.out.println(userGuest.getSelectCountry());
+        //shipping information
+        checkoutSteps.fillRegisterDataInShippingInformation();
 
-        userGuest.setSelectState(userGuest.getSelectState());
-        System.out.println(userGuest.getSelectState());
+        checkoutSteps.clickOnContinueButtonFromShippingInformation();
+        checkoutSteps.clickShippingMethod();
 
-        checkoutSteps.fillRegisterDataInBillingInfo(userGuest);
-
+        checkoutSteps.clickPaymentInformation();
+        checkoutSteps.clickOrderReview();
 
 
     }
