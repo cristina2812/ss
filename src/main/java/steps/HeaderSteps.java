@@ -78,6 +78,31 @@ public class HeaderSteps {
         headerPage.clickOnAccountDropdown();
         headerPage.clickOnLoginHeader();
     }
+    @Step
+    public void checkMenSubcategoryStep(){
+        headerPage.checkMenSubcategory();
+    }
 
+    @Step
+    public void getAccesoriesSubcategoryOptionsp(){
+        headerPage.checkAccesoriesSubcategory();
+    }
 
+    @Step
+    public void getAccesoriesSubcategoryOptions() {
+        headerPage.checkAccesoriesSubcategory();
+    }
+    @Step
+    public void getHomeOptions(){
+        headerPage.checkHomeSubcategory();
+    }
+    @Step
+    public void getSaleOptions(){
+        headerPage.checkSaleSubcategory();
+    }
+
+    @Step
+    public void getVipOptions (){
+        headerPage.checkVipSubcategory();
+    }
 }
