@@ -3,11 +3,12 @@ package test;
 import models.Product;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import page.FooterPage;
+import org.openqa.selenium.Keys;
 import steps.FooterSteps;
+
+
 
 @RunWith(SerenityRunner.class)
 public class FooterTest extends BaseTest {
@@ -15,10 +16,8 @@ public class FooterTest extends BaseTest {
     @Steps
     FooterSteps footerSteps;
 
-
-
     @Test
-    public void testAdvancedSearch() {
+    public void testSearchAvailableProduct() {
 
         footerSteps.clickOnFooterLink("Advanced Search");
 
@@ -34,10 +33,39 @@ public class FooterTest extends BaseTest {
 
         footerSteps.fillAdvancedSearchFields();
 
-        footerSteps.seachButton();
+       footerSteps.searchButton();
 
-        footerSteps.verifyIfResultsAreDisplayed();
+       // footerSteps.verifyIfResultsAreDisplayed();
 
+        footerSteps.verifyListResultsDisplayed();
 
     }
+
+    // This is a negative test
+
+    @Test
+    public void testSearchForUnavailableProduct() {
+
+        footerSteps.clickOnFooterLink("Advanced Search");
+
+        Product unavailableProduct = new Product();
+
+        unavailableProduct.setName(unavailableProduct.getName());
+        unavailableProduct.setDescription(unavailableProduct.getDescription());
+        unavailableProduct.setPriceFrom(unavailableProduct.getPriceFrom());
+        unavailableProduct.setPriceTo(unavailableProduct.getPriceTo());
+        unavailableProduct.setSelectColour(unavailableProduct.getSelectColour());
+        unavailableProduct.setSelectSize(unavailableProduct.getSelectSize());
+        unavailableProduct.setSelectGender(unavailableProduct.getSelectGender());
+
+        footerSteps.fillAdvancedSearchFieldsUnavailableProduct();
+
+        footerSteps.searchButton();
+
+        footerSteps.verifyNoReturnResult();
+
+        footerSteps.clickOnModifySearch();
+    }
+
+
 }

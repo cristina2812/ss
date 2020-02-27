@@ -5,17 +5,35 @@ import models.Product;
 public class ProductFactory {
 
     public Product getProduct() {
-        Product product = new Product();
 
-        product.setName("shirt");
-        product.setDescription("cotton");
-        product.setPriceTo("200");
-        product.setPriceFrom("1");
-        product.setSelectColour("Red");
-        product.setSelectSize("S");
-        product.setSelectGender("Male");
+        Product availableProduct = new Product();
 
-        return product;
+        availableProduct.setName("shirt");
+        availableProduct.setDescription("cotton");
+        availableProduct.setPriceTo("200");
+        availableProduct.setPriceFrom("1");
+        availableProduct.setSelectColour("Red");
+        availableProduct.setSelectSize("S");
+        availableProduct.setSelectGender("Male");
+
+        return availableProduct;
+
+    }
+
+    public Product getUnavailableProduct() {
+
+        Product unavailableProduct = new Product();
+
+        unavailableProduct.setName("jeans");
+        unavailableProduct.setDescription("denim");
+        unavailableProduct.setPriceFrom("0");
+        unavailableProduct.setPriceTo("350");
+        unavailableProduct.setSelectColour("Blue");
+        unavailableProduct.setSelectSize("28");
+        unavailableProduct.setSelectGender("Female");
+
+        return unavailableProduct;
+
     }
 
 }

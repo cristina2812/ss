@@ -3,8 +3,9 @@ package page;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import org.openqa.selenium.Keys;
 
-import java.util.List;
+import java.time.Duration;
 
 @DefaultUrl("http://qa2.dev.evozon.com")
 public class FooterPage extends AbstractPage {
@@ -36,9 +37,25 @@ public class FooterPage extends AbstractPage {
    @FindBy (css = ".products-grid.products-grid--max-4-col.first.last.odd")
    private WebElementFacade advancedSearchResults;
 
+   @FindBy (css = "div.category-products > ul li.item")
+   private WebElementFacade listOfResults;
+
+   @FindBy (css = ".error-msg > a")
+   private WebElementFacade modifyYourSearch;
+
+   @FindBy (css = ".error-msg")
+   private WebElementFacade noResult;
+
+
+
    public void clickOnSearchButton() {
        searchButton.click();
    }
+
+    public void enterOnSearch() {
+        withTimeoutOf(Duration.ofSeconds(5)).waitFor(searchButton);
+        searchButton.sendKeys(Keys.ENTER);
+    }
 
    public void typeProductName(String productName) {
        productNameField.type(productName);
@@ -72,7 +89,21 @@ public class FooterPage extends AbstractPage {
       return advancedSearchResults.isDisplayed();
     }
 
+    public boolean isListOfResultsDisplayed(){
+        return listOfResults.isDisplayed();
+    }
 
+    public boolean isNoResultDisplayed() {
+      return noResult.isDisplayed();
+    }
 
+    public void clickModifySearch() {
+        withTimeoutOf(Duration.ofSeconds(5)).waitFor(modifyYourSearch).isVisible();
+        modifyYourSearch.click();
+    }
+
+//    public boolean modifySearch() {
+//       return modifyYourSearch.isVisible();
+//    }
 
 }
