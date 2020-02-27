@@ -21,34 +21,28 @@ public class ProductPage extends AbstractPage {
     @FindBy(css=".add-to-cart-buttons")
     private WebElementFacade addToCartButton;
 
+    @FindBy(css = "div.product-name > span")
+    private WebElementFacade productName;
+
     public int getColorListSize() {
         return colorList.size();
     }
 
-
-
-    public void getRandomProperties() throws InterruptedException {
-        getDriver().get("http://qa2.dev.evozon.com/men/shirts/plaid-cotton-shirt-476.html");
-
+    public void getRandomProperties() {
         Random rand = new Random();
         WebElementFacade randomColor = colorList.get(rand.nextInt(colorList.size()));
-
         randomColor.click();
-
-
         WebElementFacade randomSize = customSize.get(rand.nextInt(customSize.size()));
-
-        System.out.println(customSize.size());
-        System.out.println(randomSize.getText());
         randomSize.click();
-        Thread.sleep(5000);
-//        for(WebElementFacade list : customSize)
-//        System.out.println(list.getText());
     }
 
     public void addToCart(){
         addToCartButton.click();
     }
 
+    public String getProductName() {
+        String name = productName.getText();
+        return name;
+    }
 
 }

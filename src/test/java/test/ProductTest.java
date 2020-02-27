@@ -35,5 +35,12 @@ public class ProductTest extends BaseTest {
         productSteps.clickAddToCart();
     }
 
+    @Test
+    public void getProductNameFromPage() {
+        headerSteps.insertKeywordInSearchField("glass");
+        productSteps.selectCustomProduct();
+        productSteps.getProductName();
+    }
+
 
 }

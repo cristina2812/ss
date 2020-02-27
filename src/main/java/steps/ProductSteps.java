@@ -3,8 +3,6 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import page.ProductPage;
-
-import net.thucydides.core.annotations.Step;
 import org.junit.Assert;
 import page.HeaderPage;
 import page.ProductsListPage;
@@ -15,16 +13,18 @@ public class ProductSteps {
     ProductsListPage productsListPage;
 
 
-
     @Step
     public void selectCustomProduct() {
         productsListPage.clickOnRandomProductFromList();
     }
 
+
     @Step
-    public void getProperties() throws InterruptedException {
+    public void getProperties() {
+        System.out.println(productPage.getColorListSize());
         productPage.getRandomProperties();
     }
+
 
     @Step
     public void insertKeywordInSearchField(String key) {
@@ -36,8 +36,16 @@ public class ProductSteps {
     public void clickAddToCart() {
         productPage.addToCart();
     }
+
     @Step
-    public void clickOnSimpleProductPage(){
+    public void clickOnSimpleProductPage() {
         productsListPage.clickOnRandomProductFromList();
+    }
+
+    @Step
+    public String getProductName() {
+        Assert.assertTrue(productPage.getProductName()!=null);
+        String name = productPage.getProductName();
+        return name;
     }
 }
