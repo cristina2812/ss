@@ -23,10 +23,5 @@ public class BaseTest {
 		webdriver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 	}
 
-	@After
-	public void tearDown() {
-		System.out.println("After test!");
-		//webdriver.quit();
-	}
 
 }

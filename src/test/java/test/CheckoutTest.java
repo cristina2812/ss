@@ -99,6 +99,7 @@ public class CheckoutTest extends BaseTest {
 
         //click checkout as guest
         checkoutSteps.clickCheckoutBtn();
+
         //billing information
         checkoutSteps.fillRegisterDataInBillingInfo();
 

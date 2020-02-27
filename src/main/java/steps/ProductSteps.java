@@ -21,20 +21,15 @@ public class ProductSteps {
         productsListPage.clickOnRandomProductFromList();
     }
 
-
     @Step
-    public void getProperties() {
-        System.out.println(productPage.getColorListSize());
+    public void getProperties() throws InterruptedException {
         productPage.getRandomProperties();
     }
-
 
     @Step
     public void insertKeywordInSearchField(String key) {
         headerPage.changeFieldSearch(key);
         headerPage.clickSearchBtn();
-        productsListPage.getRandomProduct();
-        productPage.getRandomProperties();
     }
 
     @Step

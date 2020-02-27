@@ -27,12 +27,23 @@ public class ProductPage extends AbstractPage {
 
 
 
-    public void getRandomProperties() {
+    public void getRandomProperties() throws InterruptedException {
+        getDriver().get("http://qa2.dev.evozon.com/men/shirts/plaid-cotton-shirt-476.html");
+
         Random rand = new Random();
         WebElementFacade randomColor = colorList.get(rand.nextInt(colorList.size()));
+
         randomColor.click();
+
+
         WebElementFacade randomSize = customSize.get(rand.nextInt(customSize.size()));
+
+        System.out.println(customSize.size());
+        System.out.println(randomSize.getText());
         randomSize.click();
+        Thread.sleep(5000);
+//        for(WebElementFacade list : customSize)
+//        System.out.println(list.getText());
     }
 
     public void addToCart(){

@@ -1,6 +1,7 @@
 package steps;
 
 import net.thucydides.core.annotations.Step;
+
 import org.junit.Assert;
 import page.HeaderPage;
 import page.ProductPage;

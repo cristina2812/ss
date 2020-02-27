@@ -164,14 +164,18 @@ public class HeaderPage extends AbstractPage{
         for (WebElementFacade list: getWomenSubcategoryOptions){
             System.out.println(list.getText());
         }
+    }
+
+    public void clickMenSubcategory() {
+        Actions actions = new Actions(getDriver());
+        WebElement menCategory = getDriver().findElement(By.cssSelector("li.level0.nav-2.parent"));
+        actions.moveToElement(menCategory);
+        WebElement menSubCategory = getDriver().findElement(By.cssSelector(".level1.nav-2-2"));
+        actions.moveToElement(menSubCategory).build().perform();
+        actions.click().build().perform();
+
 
     }
-//    public void checkMenSubcategory(){
-//        Actions actions = new Actions((getDriver));
-//        WebElement menCategory = getDriver().findElement(By.cssSelector(""))
-//    }
-
-
     }
 
 
