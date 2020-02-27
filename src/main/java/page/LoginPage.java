@@ -23,6 +23,15 @@ public class LoginPage extends AbstractPage{
     @FindBy(css = ".error-msg")
     public WebElementFacade invalidPassOrEmailMessage;
 
+    @FindBy(css = "input#email_address")
+    private WebElementFacade emailAddressForgotPassword;
+
+    @FindBy(css = "#form-validate > div.buttons-set > button > span > span")
+    private WebElementFacade submitForgotPassBtn;
+
+    @FindBy(css = ".success-msg")
+    private WebElementFacade messageSuccessForgotPass;
+
 
     public void clickLoginButton(){
         loginButton.click();
@@ -37,6 +46,11 @@ public class LoginPage extends AbstractPage{
         emailAddressField.type(emailAddress);
     }
 
+    public void typeEmailAddressForgotPassword(String email){
+        emailAddressForgotPassword.type(email);
+    }
+
+
     public void typePassword(String password){
         passwordField.type(password);
     }
@@ -44,6 +58,19 @@ public class LoginPage extends AbstractPage{
     public String getGreetMessage(){
         withTimeoutOf(Duration.ofSeconds(5)).waitFor(invalidPassOrEmailMessage);
         return invalidPassOrEmailMessage.getText();
+    }
+
+    public String getMessageSuccessForgotPass(){
+        withTimeoutOf(Duration.ofSeconds(5)).waitFor(messageSuccessForgotPass);
+        return messageSuccessForgotPass.getText();
+    }
+
+    public void forgotPassword(){
+        forgotYourPassword.click();
+    }
+
+    public void submitForgotPass(){
+        submitForgotPassBtn.click();
     }
 
 

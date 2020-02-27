@@ -45,5 +45,27 @@ public class LoginSteps {
         String messageInvalid = loginPage.getGreetMessage();
         Assert.assertEquals("Invalid login or password.", messageInvalid);
     }
+    @Step
+    public void messageSuccessForgotPass(){
 
+        String messageSuccess = loginPage.getMessageSuccessForgotPass();
+        Assert.assertTrue(messageSuccess.contains(" you will receive an email"));
+    }
+
+
+    @Step
+    public void forgotPassword(){
+
+        loginPage.forgotPassword();
+    }
+
+    @Step
+    public void fillEmailAddressForgotPass(String email){
+        loginPage.typeEmailAddressForgotPassword(email);
+    }
+
+    @Step
+    public void clickSubmitForgotPass(){
+        loginPage.submitForgotPass();
+    }
 }
