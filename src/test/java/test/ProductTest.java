@@ -20,6 +20,8 @@ public class ProductTest extends BaseTest {
     @Steps
     HeaderSteps headerSteps;
 
+//    Product product;
+
     @Test
     public void clickOnSimpleProduct(){
         headerSteps.insertKeywordInSearchField("glass");
@@ -39,7 +41,7 @@ public class ProductTest extends BaseTest {
     public void getProductNameFromPage() {
         headerSteps.insertKeywordInSearchField("glass");
         productSteps.selectCustomProduct();
-        productSteps.getProductName();
+        productSteps.returnProductName();
     }
 
 

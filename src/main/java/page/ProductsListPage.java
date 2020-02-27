@@ -16,7 +16,5 @@ public class ProductsListPage extends AbstractPage {
         Random rand = new Random();
         WebElementFacade randomProd = randomProductFromList.get(rand.nextInt(randomProductFromList.size()));
         randomProd.click();
-
-
     }
 }

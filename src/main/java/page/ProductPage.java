@@ -24,6 +24,9 @@ public class ProductPage extends AbstractPage {
     @FindBy(css = "div.product-name > span")
     private WebElementFacade productName;
 
+    @FindBy(css = "div.price-info > div ")
+    private WebElementFacade productPrice;
+
     public int getColorListSize() {
         return colorList.size();
     }
@@ -44,5 +47,11 @@ public class ProductPage extends AbstractPage {
         String name = productName.getText();
         return name;
     }
+
+    public String getProductPrice() {
+        return productPrice.getText();
+    }
+
+
 
 }

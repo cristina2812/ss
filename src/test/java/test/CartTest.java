@@ -44,7 +44,7 @@ public class CartTest extends BaseTest {
         product = new Product();
         headerSteps.insertKeywordInSearchField("glass");
         productsListPage.clickOnRandomProductFromList();
-        product.setName(productSteps.getProductName());
+//        product.setName(productSteps.getProductName());
         productSteps.clickAddToCart();
         cartSteps.checkProductNameFromCartPage();
         cartSteps.checkProductNameFromCartContainsInitialName(product.getName());
