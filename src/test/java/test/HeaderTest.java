@@ -55,9 +55,35 @@ public class HeaderTest extends BaseTest {
     public void headerTitlesTest() {
         headerSteps.checkHeaderTitles();
     }
+    @Test
+    public void mainNavigationOptions(){
+        headerSteps.checkMainNavigationOptions();
+    }
+    @Test
+    public void checkWomenSubcat(){
+        headerSteps.checkWomenSubcategoryStep();
+    }
+    @Test
+    public void checkMencat(){
+        headerSteps.checkMenSubcategoryStep();
+    }
+    @Test
+    public void checkAccescat (){
+        headerSteps.getAccesoriesSubcategoryOptions();
+    }
 
+    @Test
+    public void checkHomeOptions (){
+    headerSteps.getHomeOptions();
+    }
 
-
-
+    @Test
+    public void checkSaleOptions(){
+        headerSteps.getSaleOptions();
+    }
+    @Test
+    public void checkVipOptions(){
+        headerSteps.getVipOptions();
+    }
 }
 

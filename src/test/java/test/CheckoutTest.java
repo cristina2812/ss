@@ -70,7 +70,7 @@ public class CheckoutTest extends BaseTest {
         anotherUserGuest.setSelectCountry(anotherUserGuest.getSelectCountry());
         anotherUserGuest.setSelectState(anotherUserGuest.getSelectState());
 
-        checkoutSteps.fillRegisterDataInShippingInformation(anotherUserGuest);
+        checkoutSteps.fillRegisterDataInShippingInformation();
 
     }
 
@@ -100,9 +100,19 @@ public class CheckoutTest extends BaseTest {
         //click checkout as guest
         checkoutSteps.clickCheckoutBtn();
         //billing information
-
-
         checkoutSteps.fillRegisterDataInBillingInfo();
+
+        //click continue billing information
+        checkoutSteps.clickOnContinueButtonFromBillingInformationCheckout();
+
+        //shipping information
+        checkoutSteps.fillRegisterDataInShippingInformation();
+
+        checkoutSteps.clickOnContinueButtonFromShippingInformation();
+        checkoutSteps.clickShippingMethod();
+
+        checkoutSteps.clickPaymentInformation();
+        checkoutSteps.clickOrderReview();
 
 
     }

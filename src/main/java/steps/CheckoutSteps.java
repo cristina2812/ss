@@ -57,6 +57,7 @@ public class CheckoutSteps {
     @Step
     public void clickOnContinueButtonFromBillingInformationCheckout() {
         checkoutPage.clickContinueButtonFromBillingInformationCheckout();
+
     }
 
 
@@ -72,7 +73,10 @@ public class CheckoutSteps {
     }
 
     @Step
-    public void fillRegisterDataInShippingInformation (UserGuest userGuest){
+    public void fillRegisterDataInShippingInformation (){
+
+        UserFactory  userFactory = new UserFactory();
+        UserGuest userGuest = userFactory.getUser();
 
         checkoutPage.typeFirstNameInShipping(userGuest.getFirstName());
         checkoutPage.typeLastNameInShipping(userGuest.getLastName());

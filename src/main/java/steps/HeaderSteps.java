@@ -63,5 +63,46 @@ public class HeaderSteps {
         headerPage.clickOnSpecificTitle();
         Assert.assertEquals(headerPage.getSiteUrl(), "http://qa2.dev.evozon.com/sale.html");
     }
+    @Step
+    public void checkMainNavigationOptions(){
+        headerPage.getMainNavigationOptions();
+    }
+    @Step
+    public void checkWomenSubcategoryStep(){
+        headerPage.checkWomenSubcategory();
+    }
 
+
+    @Step
+    public void clickLoginBtn(){
+        headerPage.clickOnAccountDropdown();
+        headerPage.clickOnLoginHeader();
+    }
+    @Step
+    public void checkMenSubcategoryStep(){
+        headerPage.checkMenSubcategory();
+    }
+
+    @Step
+    public void getAccesoriesSubcategoryOptionsp(){
+        headerPage.checkAccesoriesSubcategory();
+    }
+
+    @Step
+    public void getAccesoriesSubcategoryOptions() {
+        headerPage.checkAccesoriesSubcategory();
+    }
+    @Step
+    public void getHomeOptions(){
+        headerPage.checkHomeSubcategory();
+    }
+    @Step
+    public void getSaleOptions(){
+        headerPage.checkSaleSubcategory();
+    }
+
+    @Step
+    public void getVipOptions (){
+        headerPage.checkVipSubcategory();
+    }
 }
