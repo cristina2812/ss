@@ -23,14 +23,14 @@ public class ProductTest extends BaseTest {
 //    Product product;
 
     @Test
-    public void clickOnSimpleProduct(){
+    public void testClickOnSimpleProduct(){
         headerSteps.insertKeywordInSearchField("glass");
         productsListPage.clickOnRandomProductFromList();
         productSteps.clickAddToCart();
     }
 
     @Test
-    public void getRandomCustomProduct() throws InterruptedException {
+    public void testRandomCustomProduct() throws InterruptedException {
 //        headerSteps.insertKeywordInSearchField("pants");
 //        productSteps.selectCustomProduct();
         productSteps.getProperties();
@@ -38,11 +38,15 @@ public class ProductTest extends BaseTest {
     }
 
     @Test
-    public void getProductNameFromPage() {
+    public void testProductPropertiesFromPage() {
         headerSteps.insertKeywordInSearchField("glass");
         productSteps.selectCustomProduct();
         productSteps.returnProductName();
+        productSteps.returnProductPrice();
     }
+
+
+
 
 
 }

@@ -39,4 +39,18 @@ public class CartSteps {
         String actualName = cartPage.getCartProductName();
         Assert.assertTrue(actualName.toLowerCase().contains(name.toLowerCase()));
     }
+
+    @Step
+    public void checkProductPriceFromCartContainsInitialPrice(String price) {
+        String actualPrice = cartPage.getCartProductPrice();
+        Assert.assertTrue(actualPrice.contains(price));
+    }
+
+    @Step
+    public void checkTotalPriceFromCart(String totalPrice) {
+        String actualTotalPrice = cartPage.getTotalPriceFromCart();
+        System.out.println(actualTotalPrice);
+        Assert.assertTrue(actualTotalPrice.contains(totalPrice));
+
+    }
 }

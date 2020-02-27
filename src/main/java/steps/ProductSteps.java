@@ -50,8 +50,14 @@ public class ProductSteps {
         return name;
     }
 
+    @Step
+    public String returnProductPrice() {
+        Assert.assertTrue(productPage.getProductPrice() != null);
+        return  productPage.getProductPrice();
+    }
+
 //    @Step
-//    public String getProductPrice() {
-//
+//    public int returnProductsPrice(){
+//        return productPage.productsSum();
 //    }
 }
