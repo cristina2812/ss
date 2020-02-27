@@ -64,4 +64,11 @@ public class HeaderSteps {
         Assert.assertEquals(headerPage.getSiteUrl(), "http://qa2.dev.evozon.com/sale.html");
     }
 
+    @Step
+    public void clickLoginBtn(){
+        headerPage.clickOnAccountDropdown();
+        headerPage.clickOnLoginHeader();
+    }
+
+
 }

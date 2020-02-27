@@ -51,6 +51,9 @@ public class HeaderPage extends AbstractPage{
     @FindBy (css = ".button btn-cart")
     private WebElementFacade clickToAddtocart;
 
+    @FindBy (css = "#header-account > div > ul > li.last > a")
+    private WebElementFacade loginHeaderBtn;
+
 
     public String getGreetMessage(){
         withTimeoutOf(Duration.ofSeconds(5)).waitFor(greetMessage);
@@ -63,22 +66,27 @@ public class HeaderPage extends AbstractPage{
     }
 
     public String getSiteUrl(){
+
         return getDriver().getCurrentUrl();
     }
 
     public boolean seeIfLogoIsDisplayed(){
+
         return pageLogo.isDisplayed();
     }
 
     public void clickOnLogo() {
+
         pageLogo.click();
     }
 
     public void clickOnAccountDropdown() {
+
         accountDropdownButton.click();
     }
 
     public boolean seeIfAccountListIsDIsplayed() {
+
         return accountDropdownList.isDisplayed();
     }
 
@@ -120,7 +128,12 @@ public class HeaderPage extends AbstractPage{
     }
 
     public void clickOnSpecificTitle(){
+
         clickOnSpecificTitle.click();
+    }
+
+    public void clickOnLoginHeader(){
+        loginHeaderBtn.click();
     }
 
 }
