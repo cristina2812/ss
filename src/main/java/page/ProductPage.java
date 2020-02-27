@@ -44,5 +44,4 @@ public class ProductPage extends AbstractPage {
         String name = productName.getText();
         return name;
     }
-
 }
