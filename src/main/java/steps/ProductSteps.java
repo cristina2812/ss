@@ -3,7 +3,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 import page.ProductPage;
-
+import org.junit.Assert;
 import page.HeaderPage;
 import page.ProductsListPage;
 
@@ -36,8 +36,16 @@ public class ProductSteps {
     public void clickAddToCart() {
         productPage.addToCart();
     }
+
     @Step
-    public void clickOnSimpleProductPage(){
+    public void clickOnSimpleProductPage() {
         productsListPage.clickOnRandomProductFromList();
+    }
+
+    @Step
+    public void verifyCartProductName() {
+        Assert.assertTrue(productPage.getProductName()!=null);
+        System.out.println(productPage.getProductName());
+        //Assert.assertNotNull(productPage.getProductName());
     }
 }

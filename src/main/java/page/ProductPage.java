@@ -4,6 +4,7 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Random;
 
@@ -20,11 +21,12 @@ public class ProductPage extends AbstractPage {
     @FindBy(css=".add-to-cart-buttons")
     private WebElementFacade addToCartButton;
 
+    @FindBy(css = "div.product-name > span")
+    private WebElementFacade productName;
+
     public int getColorListSize() {
         return colorList.size();
     }
-
-
 
     public void getRandomProperties() {
         Random rand = new Random();
@@ -38,5 +40,10 @@ public class ProductPage extends AbstractPage {
         addToCartButton.click();
     }
 
+    public String getProductName() {
+        withTimeoutOf(Duration.ofSeconds(3)).waitFor(productName);
+        String name = productName.getText();
+        return name;
+    }
 
 }
