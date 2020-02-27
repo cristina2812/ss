@@ -145,7 +145,7 @@ public class HeaderPage extends AbstractPage{
         clickOnSpecificTitle.click();
     }
 
-    public void clickOnLoginHeader(){
+    public void clickOnLoginHeader() {
         loginHeaderBtn.click();
     }
 

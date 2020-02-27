@@ -3,6 +3,7 @@ package steps;
 import factory.UserFactory;
 import models.LoginUser;
 import net.thucydides.core.annotations.Step;
+import org.junit.Assert;
 import page.LoginPage;
 
 public class LoginSteps {
@@ -36,6 +37,13 @@ public class LoginSteps {
     @Step
     public void  fillPasswordData(String password){
         loginPage.typePassword(password);
+    }
+
+    @Step
+    public void messagePassworOrEmailInvalid(){
+
+        String messageInvalid = loginPage.getGreetMessage();
+        Assert.assertEquals("Invalid login or password.", messageInvalid);
     }
 
 }

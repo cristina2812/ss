@@ -27,6 +27,10 @@ public class LoginTest extends BaseTest {
 
     @Test
     public void loginInvalidPasswordAndValidEmail(){
-
+        headerSteps.clickLoginBtn();
+        loginSteps.fillEmailAddressData("cristina_adam97@yahoo.com");
+        loginSteps.fillPasswordData("12345678");
+        loginSteps.clickOnLoginButton();
+        loginSteps.messagePassworOrEmailInvalid();
     }
 }
