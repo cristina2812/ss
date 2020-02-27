@@ -1,7 +1,6 @@
 package test;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -56,6 +55,13 @@ public class HeaderTest extends BaseTest {
     public void headerTitlesTest() {
         headerSteps.checkHeaderTitles();
     }
-
+    @Test
+    public void mainNavigationOptions(){
+        headerSteps.checkMainNavigationOptions();
+    }
+    @Test
+    public void checkWomenSubcat(){
+        headerSteps.checkWomenSubcategoryStep();
+    }
 }
 

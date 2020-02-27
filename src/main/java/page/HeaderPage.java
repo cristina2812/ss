@@ -3,9 +3,15 @@ package page;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
+import org.openqa.selenium.By;
 
 import java.time.Duration;
 import java.util.List;
+
+
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+
 
 import static org.hamcrest.CoreMatchers.is;
 
@@ -50,6 +56,13 @@ public class HeaderPage extends AbstractPage{
 
     @FindBy (css = ".button btn-cart")
     private WebElementFacade clickToAddtocart;
+
+    @FindBy ( css = ".nav-primary" )
+    private List<WebElementFacade> getMainNavigationOptions;
+
+    @FindBy ( css = ".level0.nav-1.parent" )
+    private List<WebElementFacade> getWomenSubcategoryOptions;
+
 
     @FindBy (css = "#header-account > div > ul > li.last > a")
     private WebElementFacade loginHeaderBtn;
@@ -137,4 +150,28 @@ public class HeaderPage extends AbstractPage{
         loginHeaderBtn.click();
     }
 
-}
+    public void getMainNavigationOptions(){
+        for (WebElementFacade list: getMainNavigationOptions){
+            System.out.println(list.getText());
+        }
+    }
+    public void checkWomenSubcategory(){
+        Actions actions = new Actions(getDriver());
+        WebElement womenCategory = getDriver().findElement(By.xpath("//ol/li/a[text()='Women']"));
+        System.out.println("efewfwe");
+        actions.moveToElement(womenCategory).build().perform();
+        System.out.println("asdf");
+        for (WebElementFacade list: getWomenSubcategoryOptions){
+            System.out.println(list.getText());
+        }
+
+    }
+//    public void checkMenSubcategory(){
+//        Actions actions = new Actions((getDriver));
+//        WebElement menCategory = getDriver().findElement(By.cssSelector(""))
+//    }
+
+
+    }
+
+
