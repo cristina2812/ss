@@ -11,6 +11,8 @@ import java.util.Random;
 @DefaultUrl("http://qa2.dev.evozon.com/khaki-bowery-chino-pants.html")
 public class ProductPage extends AbstractPage {
 
+    int suma;
+
     @FindBy(css = "ul#configurable_swatch_color li")
     private List<WebElementFacade> colorList;
 
@@ -23,6 +25,9 @@ public class ProductPage extends AbstractPage {
 
     @FindBy(css = "div.product-name > span")
     private WebElementFacade productName;
+
+    @FindBy(css = "div.price-info > div ")
+    private WebElementFacade productPrice;
 
     public int getColorListSize() {
         return colorList.size();
@@ -44,5 +49,17 @@ public class ProductPage extends AbstractPage {
         String name = productName.getText();
         return name;
     }
+
+    public String getProductPrice() {
+        return productPrice.getText();
+    }
+
+//    public int productsSum() {
+//        int price = Integer.parseInt(getProductPrice());
+//        suma = suma + price;
+//        return suma;
+//    }
+
+
 
 }

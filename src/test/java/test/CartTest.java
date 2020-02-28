@@ -33,21 +33,28 @@ public class CartTest extends BaseTest {
     }
 
     @Test
-    public void checkIfCartContainsZeroProduct() {
+    public void testIfCartContainsZeroProduct() {
         cartSteps.clickOnCart();
         cartSteps.checkCartWrapperExist();
         cartSteps.checkCartWrapperMessage("You have no items in your shopping cart.");
     }
 
     @Test
-    public void checkIfCartContainsProducts() {
+    public void testIfCartContainsProducts() {
         product = new Product();
         headerSteps.insertKeywordInSearchField("glass");
         productsListPage.clickOnRandomProductFromList();
-        product.setName(productSteps.getProductName());
+
+        product.setName(productSteps.returnProductName());
+        product.setActualPrice(productSteps.returnProductPrice());
+
         productSteps.clickAddToCart();
         cartSteps.checkProductNameFromCartPage();
         cartSteps.checkProductNameFromCartContainsInitialName(product.getName());
+        cartSteps.checkProductPriceFromCartContainsInitialPrice(product.getActualPrice());
+        /*
+            need to check total price
+         */
     }
 
 }

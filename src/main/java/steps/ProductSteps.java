@@ -2,6 +2,7 @@ package steps;
 
 
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.Steps;
 import page.ProductPage;
 import org.junit.Assert;
 import page.HeaderPage;
@@ -43,9 +44,20 @@ public class ProductSteps {
     }
 
     @Step
-    public String getProductName() {
+    public String returnProductName() {
         Assert.assertTrue(productPage.getProductName()!=null);
         String name = productPage.getProductName();
         return name;
     }
+
+    @Step
+    public String returnProductPrice() {
+        Assert.assertTrue(productPage.getProductPrice() != null);
+        return  productPage.getProductPrice();
+    }
+
+//    @Step
+//    public int returnProductsPrice(){
+//        return productPage.productsSum();
+//    }
 }

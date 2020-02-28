@@ -3,6 +3,7 @@ package models;
 public class Product {
 
     private String name;
+    private String actualPrice;
     private String description;
     private String priceFrom;
     private String priceTo;
@@ -16,6 +17,14 @@ public class Product {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getActualPrice() {
+        return actualPrice;
+    }
+
+    public void setActualPrice(String actualPrice) {
+        this.actualPrice = actualPrice;
     }
 
     public String getDescription() {
