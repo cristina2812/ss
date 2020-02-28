@@ -1,0 +1,5 @@
+name, description, priceFrom, priceTo, selectColour, selectSize, selectGender, searchResult
+shirt, cotton, 1, 200, Red, M, Male, " Item(s)"
+pants, cotton, 10, 200, Black, 34, Female, " Item(s)"
+top, knit, 1, 300, Pink, M, Female, " Item(s)"
+dress, jewel, 300, 320, Silver, 8, Female, " Item(s)"

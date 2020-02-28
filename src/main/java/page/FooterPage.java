@@ -46,6 +46,9 @@ public class FooterPage extends AbstractPage {
    @FindBy (css = ".error-msg")
    private WebElementFacade noResult;
 
+   @FindBy (css = "advanced-search-amount")
+   private WebElementFacade resultsFromCsv;
+
 
 
    public void clickOnSearchButton() {
