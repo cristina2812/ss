@@ -10,7 +10,7 @@ import steps.ProductsListSteps;
 
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(value = "C:\\Users\\alexandratudosa\\Desktop\\Echipa1\\src\\test\\resources\\csv\\SearchByKeyword.csv")
+@UseTestDataFrom(value = "csv/SearchByKeyword.csv")
 public class HeaderTestDataDrivenVersion extends BaseTest{
 
     private String searchKeyword, searchResult;
