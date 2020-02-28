@@ -31,8 +31,8 @@ public class ProductTest extends BaseTest {
 
     @Test
     public void testRandomCustomProduct() throws InterruptedException {
-//        headerSteps.insertKeywordInSearchField("pants");
-//        productSteps.selectCustomProduct();
+        headerSteps.insertKeywordInSearchField("pants");
+        productSteps.selectCustomProduct();
         productSteps.getProperties();
         productSteps.clickAddToCart();
     }

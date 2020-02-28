@@ -2,7 +2,6 @@ package steps;
 
 
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.annotations.Steps;
 import page.ProductPage;
 import org.junit.Assert;
 import page.HeaderPage;
@@ -57,7 +56,8 @@ public class ProductSteps {
     }
 
 //    @Step
-//    public int returnProductsPrice(){
-//        return productPage.productsSum();
+//    public String[] returnProductsSum(){
+//        System.out.println("my sum "+productPage.getProductsSum());
+//        return productPage.getProductsSum();
 //    }
 }
