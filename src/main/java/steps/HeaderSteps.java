@@ -2,6 +2,7 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 
+import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 import page.HeaderPage;
 import page.ProductPage;
@@ -13,18 +14,18 @@ public class HeaderSteps {
     ProductsListPage productsListPage;
 
     @Step
-    public void showPageTitle(String title){
+    public void showPageTitle(String title) {
         headerPage.getGreetMessage();
         Assert.assertEquals(headerPage.getPageTile(), title);
     }
 
     @Step
-    public void showWebUrl(String url){
+    public void showWebUrl(String url) {
         Assert.assertEquals(headerPage.getSiteUrl(), url);
     }
 
     @Step
-    public void showLogo(String url){
+    public void showLogo(String url) {
         Assert.assertTrue(headerPage.seeIfLogoIsDisplayed());
         headerPage.clickOnLogo();
         Assert.assertEquals(headerPage.getSiteUrl(), url);
@@ -32,60 +33,62 @@ public class HeaderSteps {
     }
 
     @Step
-    public void checkIfAccountIsDisplayed(){
+    public void checkIfAccountIsDisplayed() {
         headerPage.clickOnAccountDropdown();
         Assert.assertTrue(headerPage.seeIfAccountListIsDIsplayed());
         Assert.assertEquals(headerPage.seeAccount(), "ACCOUNT");
     }
 
     @Step
-    public void checkIfLanguageChanged(){
+    public void checkIfLanguageChanged() {
         headerPage.selectLanguageValue();
     }
 
     @Step
-    public void checkSizeLanguageOption(){
+    public void checkSizeLanguageOption() {
         int sizeLanguage = headerPage.sizeOptionLanguage();
-        Assert.assertEquals(3,sizeLanguage);
+        Assert.assertEquals(3, sizeLanguage);
     }
 
     @Step
-    public void insertKeywordInSearchField(String key){
+    public void insertKeywordInSearchField(String key) {
         headerPage.changeFieldSearch(key);
         String getInsertInFieldSearch = headerPage.getSearchField();
         headerPage.clickSearchBtn();
-        String getPageTitleSearch =  headerPage.getPageTitleSearch();
+        String getPageTitleSearch = headerPage.getPageTitleSearch();
         Assert.assertTrue(getPageTitleSearch.contains(getInsertInFieldSearch));
     }
 
     @Step
-    public void checkHeaderTitles(){
+    public void checkHeaderTitles() {
         headerPage.getHeaderTitles();
         headerPage.clickOnSpecificTitle();
         Assert.assertEquals(headerPage.getSiteUrl(), "http://qa2.dev.evozon.com/sale.html");
     }
+
     @Step
-    public void checkMainNavigationOptions(){
+    public void checkMainNavigationOptions() {
         headerPage.getMainNavigationOptions();
     }
+
     @Step
-    public void checkWomenSubcategoryStep(){
+    public void checkWomenSubcategoryStep() {
         headerPage.checkWomenSubcategory();
     }
 
-
     @Step
-    public void clickLoginBtn(){
+    public void clickLoginBtn() {
         headerPage.clickOnAccountDropdown();
         headerPage.clickOnLoginHeader();
     }
+
     @Step
-    public void checkMenSubcategoryStep(){
+    public void checkMenSubcategoryStep() {
         headerPage.checkMenSubcategory();
     }
 
     @Step
-    public void getAccesoriesSubcategoryOptionsp(){
+    public void getAccesoriesSubcategoryOptionsp() {
         headerPage.checkAccesoriesSubcategory();
     }
 
@@ -93,17 +96,34 @@ public class HeaderSteps {
     public void getAccesoriesSubcategoryOptions() {
         headerPage.checkAccesoriesSubcategory();
     }
+
     @Step
-    public void getHomeOptions(){
+    public void getHomeOptions() {
         headerPage.checkHomeSubcategory();
     }
+
     @Step
-    public void getSaleOptions(){
+    public void getSaleOptions() {
         headerPage.checkSaleSubcategory();
     }
 
     @Step
-    public void getVipOptions (){
+    public void getVipOptions() {
         headerPage.checkVipSubcategory();
     }
+
+/*    @Step
+    public void  getMenSubDDT() {
+        headerPage.clickMenSubcategoryDDT();
+    }*/
+
+    @Step
+    public void insertKeywordInSearchFieldDDT(String key) {
+        headerPage.changeFieldSearch(key);
+        headerPage.clickSearchBtn();
+    }
+
+    /*
+        new method for unexisting products
+     */
 }

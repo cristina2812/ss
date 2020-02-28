@@ -17,6 +17,9 @@ public class ProductsListPage extends AbstractPage {
     @FindBy(css = "div.category-products li.item")
     private List<WebElementFacade> getRandomProductContainer;
 
+    @FindBy(css = "div.category-products li.item > div > h2")
+    private List<WebElementFacade> productNameFromList;
+
 
     public WebElement getRandomProductContainer(){
         return getRandomProductContainer.get(rand.nextInt(getRandomProductContainer.size()));
@@ -26,4 +29,17 @@ public class ProductsListPage extends AbstractPage {
         WebElementFacade randomProd = randomProductFromList.get(rand.nextInt(randomProductFromList.size()));
         randomProd.click();
     }
+
+    public boolean isProductPresent(String productName){
+        boolean find = true;
+        for(WebElementFacade list: productNameFromList) {
+            if(list.getText().contains(productName)){
+                return find;
+            }
+            else find = false;
+        }
+        return find;
+    }
+
+
 }
