@@ -1,9 +1,13 @@
 package test;
 
+import models.SubCategory;
+import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Steps;
+import net.thucydides.junit.annotations.TestData;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.yecht.Data;
 import page.ProductsListPage;
 import steps.HeaderSteps;
 import steps.ProductSteps;
@@ -55,35 +59,49 @@ public class HeaderTest extends BaseTest {
     public void headerTitlesTest() {
         headerSteps.checkHeaderTitles();
     }
+
     @Test
-    public void mainNavigationOptions(){
+    public void mainNavigationOptions() {
         headerSteps.checkMainNavigationOptions();
     }
+
     @Test
-    public void checkWomenSubcat(){
+    public void checkWomenSubcat() {
         headerSteps.checkWomenSubcategoryStep();
     }
+
     @Test
-    public void checkMencat(){
+    public void checkMencat() {
         headerSteps.checkMenSubcategoryStep();
     }
+
     @Test
-    public void checkAccescat (){
+    public void checkAccescat() {
         headerSteps.getAccesoriesSubcategoryOptions();
     }
 
     @Test
-    public void checkHomeOptions (){
-    headerSteps.getHomeOptions();
+    public void checkHomeOptions() {
+        headerSteps.getHomeOptions();
     }
 
     @Test
-    public void checkSaleOptions(){
+    public void checkSaleOptions() {
         headerSteps.getSaleOptions();
     }
+
     @Test
-    public void checkVipOptions(){
+    public void checkVipOptions() {
         headerSteps.getVipOptions();
     }
+
+    /*
+    @Test
+    public void testMenSubcategories() {
+        headerSteps.getMenSubDDT();
+    }
+    */
+
+
 }
 

@@ -16,90 +16,89 @@ import org.openqa.selenium.interactions.Actions;
 import static org.hamcrest.CoreMatchers.is;
 
 
-public class HeaderPage extends AbstractPage{
+public class HeaderPage extends AbstractPage {
 
-    @FindBy(css="p.welcome-msg")
+    @FindBy(css = "p.welcome-msg")
     private WebElementFacade greetMessage;
 
     @FindBy(css = "head > title")
     private WebElementFacade nameTitle;
 
-    @FindBy(css=".logo")
+    @FindBy(css = ".logo")
     private WebElementFacade pageLogo;
 
-    @FindBy(css=".skip-account")
+    @FindBy(css = ".skip-account")
     private WebElementFacade accountDropdownButton;
 
-    @FindBy(css="#header-account")
+    @FindBy(css = "#header-account")
     private WebElementFacade accountDropdownList;
 
-    @FindBy(id="select-language")
+    @FindBy(id = "select-language")
     private WebElementFacade languageDropdown;
 
-    @FindBy(css="#select-language > option")
+    @FindBy(css = "#select-language > option")
     private List<WebElementFacade> optionLanguageDropDown;
 
-    @FindBy(css="#search")
+    @FindBy(css = "#search")
     private WebElementFacade insertInFieldSearch;
 
-    @FindBy(css=".button.search-button")
+    @FindBy(css = ".button.search-button")
     private WebElementFacade searchBtn;
 
-    @FindBy(css=".page-title")
+    @FindBy(css = ".page-title")
     private WebElementFacade getPageTitleSearch;
 
     @FindBy(css = ".level0.parent")
     private List<WebElementFacade> getheaderTitles;
 
-    @FindBy(css=".level0.nav-5")
+    @FindBy(css = ".level0.nav-5")
     private WebElementFacade clickOnSpecificTitle;
 
-    @FindBy (css = ".button btn-cart")
+    @FindBy(css = ".button btn-cart")
     private WebElementFacade clickToAddtocart;
 
-    @FindBy ( css = ".nav-primary" )
+    @FindBy(css = ".nav-primary")
     private List<WebElementFacade> getMainNavigationOptions;
 
-    @FindBy ( css = ".level0.nav-1.parent" )
+    @FindBy(css = ".level0.nav-1.parent")
     private List<WebElementFacade> getWomenSubcategoryOptions;
 
 
-    @FindBy (css = "#header-account > div > ul > li.last > a")
+    @FindBy(css = "#header-account > div > ul > li.last > a")
     private WebElementFacade loginHeaderBtn;
 
-    @FindBy ( css = ".level0.nav-2.parent")
+    @FindBy(css = ".level0.nav-2.parent")
     private List<WebElementFacade> getMenSubcategoryOptions;
 
-    @FindBy ( css = ".level0.nav-3.parent")
+    @FindBy(css = ".level0.nav-3.parent")
     private List<WebElementFacade> getAccesoriesSubcategoryOptions;
 
-    @FindBy ( css = ".level0.nav-4.parent")
-    private List<WebElementFacade>  getHomeOptions;
+    @FindBy(css = ".level0.nav-4.parent")
+    private List<WebElementFacade> getHomeOptions;
 
-    @FindBy ( css = ".level0.nav-5.parent")
+    @FindBy(css = ".level0.nav-5.parent")
     private List<WebElementFacade> getSaleOptions;
 
-    @FindBy ( css = ".level0.nav-6.last")
-    private List<WebElementFacade>  getVipOptions;
+    @FindBy(css = ".level0.nav-6.last")
+    private List<WebElementFacade> getVipOptions;
 
 
-
-    public String getGreetMessage(){
+    public String getGreetMessage() {
         withTimeoutOf(Duration.ofSeconds(5)).waitFor(greetMessage);
         return greetMessage.getText();
     }
 
-    public String getPageTile(){
+    public String getPageTile() {
         return getDriver().getTitle();
 
     }
 
-    public String getSiteUrl(){
+    public String getSiteUrl() {
 
         return getDriver().getCurrentUrl();
     }
 
-    public boolean seeIfLogoIsDisplayed(){
+    public boolean seeIfLogoIsDisplayed() {
 
         return pageLogo.isDisplayed();
     }
@@ -110,7 +109,7 @@ public class HeaderPage extends AbstractPage{
     }
 
     public void clickOnAccountDropdown() {
-
+        withTimeoutOf(Duration.ofSeconds(20)).waitFor(accountDropdownButton);
         accountDropdownButton.click();
     }
 
@@ -134,9 +133,9 @@ public class HeaderPage extends AbstractPage{
 
     public void changeFieldSearch(String keyword) {
         insertInFieldSearch.sendKeys(keyword);
-
     }
 
+    // used for DDT
     public String getSearchField() {
         return insertInFieldSearch.getText();
     }
@@ -156,21 +155,23 @@ public class HeaderPage extends AbstractPage{
         }
     }
 
-    public void clickOnSpecificTitle(){
+    public void clickOnSpecificTitle() {
 
         clickOnSpecificTitle.click();
     }
 
     public void clickOnLoginHeader(){
+        withTimeoutOf(Duration.ofSeconds(5)).waitFor(loginHeaderBtn);
         loginHeaderBtn.click();
     }
 
-    public void getMainNavigationOptions(){
-        for (WebElementFacade list: getMainNavigationOptions){
+    public void getMainNavigationOptions() {
+        for (WebElementFacade list : getMainNavigationOptions) {
             System.out.println(list.getText());
         }
     }
-    public void checkWomenSubcategory(){
+
+    public void checkWomenSubcategory() {
         Actions actions = new Actions(getDriver());
         WebElement womenCategory = getDriver().findElement(By.xpath("//ol/li/a[text()='Women']"));
         System.out.println("efewfwe");
