@@ -42,7 +42,15 @@ public class RegisterSteps{
         Assert.assertTrue(greetMessage.contains(fName.toLowerCase()));
         Assert.assertTrue(greetMessage.contains(lName.toLowerCase()));
     }
-
+    @Step
+    public void fillRegisterDataFromCSV(String fName,String lName,String email,String pass,String confirmPass){
+        registerPage.typeFirstName(fName);
+        registerPage.typeLastName(lName);
+        registerPage.typeEmailAdress(email);
+        registerPage.typePassword(pass);
+        registerPage.typeConfirmPassword(confirmPass);
+        confirmRegister();
+    }
 
 
 }

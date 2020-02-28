@@ -2,7 +2,6 @@ package steps;
 
 import net.thucydides.core.annotations.Step;
 
-import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
 import page.HeaderPage;
 import page.ProductPage;
@@ -75,6 +74,7 @@ public class HeaderSteps {
     public void checkWomenSubcategoryStep() {
         headerPage.checkWomenSubcategory();
     }
+
 
     @Step
     public void clickLoginBtn() {

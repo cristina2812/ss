@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import steps.HeaderSteps;
 import steps.LoginSteps;
+import steps.RegisterSteps;
 
 @RunWith(SerenityRunner.class)
 public class LoginTest extends BaseTest {
@@ -22,6 +23,7 @@ public class LoginTest extends BaseTest {
         headerSteps.clickLoginBtn();
         loginSteps.fillLoginData();
         loginSteps.clickOnLoginButton();
+        loginSteps.messageLoginSuccess();
 
     }
 
@@ -31,7 +33,7 @@ public class LoginTest extends BaseTest {
         loginSteps.fillEmailAddressData("cristina_adam97@yahoo.com");
         loginSteps.fillPasswordData("12345678");
         loginSteps.clickOnLoginButton();
-        loginSteps.messagePassworOrEmailInvalid();
+        loginSteps.messagePassworOrEmailInvalid("Invalid login or password.");
     }
 
     @Test
@@ -40,7 +42,7 @@ public class LoginTest extends BaseTest {
         loginSteps.fillEmailAddressData("cristina9723@yahoo.com");
         loginSteps.fillPasswordData("12345678");
         loginSteps.clickOnLoginButton();
-        loginSteps.messagePassworOrEmailInvalid();
+        loginSteps.messagePassworOrEmailInvalid("Invalid login or password.");
     }
 
     @Test

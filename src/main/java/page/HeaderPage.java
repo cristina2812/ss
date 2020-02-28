@@ -1,7 +1,5 @@
 package page;
 
-import factory.SubCategoryFactory;
-import models.SubCategory;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.junit.Assert;
@@ -111,7 +109,7 @@ public class HeaderPage extends AbstractPage {
     }
 
     public void clickOnAccountDropdown() {
-
+        withTimeoutOf(Duration.ofSeconds(20)).waitFor(accountDropdownButton);
         accountDropdownButton.click();
     }
 
@@ -162,7 +160,8 @@ public class HeaderPage extends AbstractPage {
         clickOnSpecificTitle.click();
     }
 
-    public void clickOnLoginHeader() {
+    public void clickOnLoginHeader(){
+        withTimeoutOf(Duration.ofSeconds(5)).waitFor(loginHeaderBtn);
         loginHeaderBtn.click();
     }
 
@@ -178,7 +177,7 @@ public class HeaderPage extends AbstractPage {
         System.out.println("efewfwe");
         actions.moveToElement(womenCategory).build().perform();
         System.out.println("asdf");
-        for (WebElementFacade list : getWomenSubcategoryOptions) {
+        for (WebElementFacade list: getWomenSubcategoryOptions){
             System.out.println(list.getText());
         }
 
@@ -191,68 +190,49 @@ public class HeaderPage extends AbstractPage {
         WebElement menSubCategory = getDriver().findElement(By.cssSelector(".level1.nav-2-2"));
         actions.moveToElement(menSubCategory).build().perform();
         actions.click().build().perform();
-    }
 
-    public void checkMenSubcategory() {
-        Actions actions = new Actions((getDriver()));
-        WebElement menCategory = getDriver().findElement(By.cssSelector(".level0.nav-2.parent"));
-        actions.moveToElement(menCategory).build().perform();
-        for (WebElementFacade list : getMenSubcategoryOptions) {
-            System.out.println(list.getText());
-        }
-    }
 
-    public void checkAccesoriesSubcategory() {
-        Actions actions = new Actions(getDriver());
+    }
+    public void checkMenSubcategory(){
+    Actions actions = new Actions((getDriver()));
+    WebElement menCategory = getDriver().findElement(By.cssSelector(".level0.nav-2.parent"));
+    actions.moveToElement(menCategory).build().perform();
+    for (WebElementFacade list : getMenSubcategoryOptions){
+        System.out.println(list.getText());
+    }
+    }
+    public void checkAccesoriesSubcategory(){
+        Actions actions = new Actions (getDriver());
         WebElement accesoriesCategory = getDriver().findElement(By.cssSelector(".level0.nav-3.parent"));
         actions.moveToElement(accesoriesCategory).build().perform();
-        for (WebElementFacade list : getAccesoriesSubcategoryOptions) {
+        for (WebElementFacade list : getAccesoriesSubcategoryOptions){
             System.out.println(list.getText());
         }
     }
-
-    public void checkHomeSubcategory() {
+    public void checkHomeSubcategory(){
         Actions actions = new Actions(getDriver());
         WebElement homeCategory = getDriver().findElement(By.cssSelector(".level0.nav-4.parent"));
         actions.moveToElement(homeCategory).build().perform();
-        for (WebElementFacade list : getHomeOptions) {
+        for (WebElementFacade list : getHomeOptions){
             System.out.println(list.getText());
         }
     }
-
-    public void checkSaleSubcategory() {
+    public void checkSaleSubcategory(){
         Actions actions = new Actions(getDriver());
         WebElement saleCategory = getDriver().findElement(By.cssSelector(".level0.nav-5.parent"));
         actions.moveToElement(saleCategory).build().perform();
-        for (WebElementFacade list : getSaleOptions) {
+        for (WebElementFacade list : getSaleOptions){
             System.out.println(list.getText());
         }
     }
-
-    public void checkVipSubcategory() {
+    public void checkVipSubcategory(){
         Actions action = new Actions(getDriver());
         WebElement vipCategory = getDriver().findElement(By.cssSelector(".level0.nav-6.last"));
         action.moveToElement(vipCategory).build().perform();
-        for (WebElementFacade list : getVipOptions) {
+        for (WebElementFacade list : getVipOptions){
             System.out.println(list.getText());
         }
     }
-
-    /*public void clickMenSubcategoryDDT() {
-        SubCategoryFactory subCategoryFactory = new SubCategoryFactory();
-        SubCategory subCategory = subCategoryFactory.getSubCategory();
-
-        Actions actions = new Actions(getDriver());
-        WebElement menCategory = getDriver().findElement(By.cssSelector("li.level0.nav-2.parent"));
-        actions.moveToElement(menCategory);
-
-        // sub category
-        WebElement menSubCategory = getDriver().findElement(By.cssSelector(".level1.nav-2-2"));
-        actions.moveToElement(menSubCategory).build().perform();
-        subCategory.getSubcategoryName();
-        System.out.println(subCategory.getSubcategoryName()+" tfdadgfigadugauisdgduigdgasjdgasgud");
-        actions.click().build().perform();
-    }*/
 }
 
 
