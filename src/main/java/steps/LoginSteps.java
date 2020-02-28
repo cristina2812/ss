@@ -12,6 +12,7 @@ public class LoginSteps {
     LoginPage loginPage;
     HeaderPage headerPage;
 
+
     @Step
     public void clickOnLoginButton(){
         loginPage.clickLoginButton();
@@ -29,6 +30,12 @@ public class LoginSteps {
 
         loginPage.typeEmailAddress(loginUser.getEmailAddress());
         loginPage.typePassword(loginUser.getPassword());
+
+    }
+
+    @Step
+    public void loginSuccess(){
+
     }
 
     @Step
@@ -42,10 +49,18 @@ public class LoginSteps {
     }
 
     @Step
-    public void messagePassworOrEmailInvalid(){
+    public void messagePassworOrEmailInvalid(String resultDefinition){
 
+        resultDefinition = "Invalid login or password.";
         String messageInvalid = loginPage.getGreetMessage();
-        Assert.assertEquals("Invalid login or password.", messageInvalid);
+        Assert.assertEquals(resultDefinition, messageInvalid);
+    }
+
+    @Step
+    public void messageLoginSuccess(){
+        String messageSuccess = loginPage.loginSuccessMessage();
+        Assert.assertTrue(messageSuccess.contains("WELCOME"));
+
     }
     @Step
     public void messageSuccessForgotPass(){

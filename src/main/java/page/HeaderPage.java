@@ -110,7 +110,7 @@ public class HeaderPage extends AbstractPage{
     }
 
     public void clickOnAccountDropdown() {
-
+        withTimeoutOf(Duration.ofSeconds(20)).waitFor(accountDropdownButton);
         accountDropdownButton.click();
     }
 
@@ -162,6 +162,7 @@ public class HeaderPage extends AbstractPage{
     }
 
     public void clickOnLoginHeader(){
+        withTimeoutOf(Duration.ofSeconds(5)).waitFor(loginHeaderBtn);
         loginHeaderBtn.click();
     }
 
