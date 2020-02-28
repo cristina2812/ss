@@ -1,5 +1,6 @@
 package steps;
 
+import com.google.inject.internal.cglib.core.$ProcessArrayCallback;
 import factory.ProductFactory;
 import models.Product;
 import net.thucydides.core.annotations.Step;
@@ -114,11 +115,16 @@ public class FooterSteps {
 
     @Step
     public void fillAndSearch() {
-        fillFieldsDDT(name, description, priceFrom, priceTo, selectColour, selectSize, selectGender);
+        //fillFieldsDDT(name, description, priceFrom, priceTo, selectColour, selectSize, selectGender);
+        footerPage.typeProductName(name);
+        footerPage.typeProductDescription(description);
+        footerPage.typePriceFrom(priceFrom);
+        footerPage.typePriceTo(priceTo);
+        footerPage.selectProductColour(selectColour);
+        footerPage.selectProductSize(selectSize);
+        footerPage.selectGender(selectGender);
         searchButton();
         shouldReturnResult(searchResult);
     }
-
-
 
 }
