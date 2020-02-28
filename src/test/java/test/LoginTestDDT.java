@@ -10,10 +10,11 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import steps.HeaderSteps;
 import steps.LoginSteps;
+import utils.Constants;
 
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(value = "D:/Echipa1/src/test/resources/csv/" + "LoginUsers.csv")
+@UseTestDataFrom(value = Constants.CSV_FILES_PATH + "LoginUsers.csv")
 public class LoginTestDDT extends BaseTest{
 
     @Managed(uniqueSession = true)
