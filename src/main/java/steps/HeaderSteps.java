@@ -121,9 +121,7 @@ public class HeaderSteps {
     public void insertKeywordInSearchFieldDDT(String key) {
         headerPage.changeFieldSearch(key);
         headerPage.clickSearchBtn();
+        headerPage.clearSearchInput();
     }
 
-    /*
-        new method for unexisting products
-     */
 }

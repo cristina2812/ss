@@ -233,6 +233,10 @@ public class HeaderPage extends AbstractPage {
             System.out.println(list.getText());
         }
     }
+
+    public void clearSearchInput() {
+        insertInFieldSearch.clear();
+    }
 }
 
 

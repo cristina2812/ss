@@ -15,7 +15,7 @@ import test.*;
 		FooterTest.class,
 		HomepageTest.class,
 		LoginTest.class,
-		OrderTest.class,
+//		OrderTest.class,
 		ProductTest.class,
 		RegisterTest.class,
 		SearchByKeywordTest.class,
