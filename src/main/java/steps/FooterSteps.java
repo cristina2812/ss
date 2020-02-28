@@ -1,13 +1,19 @@
 package steps;
 
+import com.google.inject.internal.cglib.core.$ProcessArrayCallback;
 import factory.ProductFactory;
 import models.Product;
 import net.thucydides.core.annotations.Step;
+import net.thucydides.core.annotations.StepGroup;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import page.FooterPage;
 
 import java.time.Duration;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.hasItem;
 
 public class FooterSteps {
 
@@ -87,5 +93,38 @@ public class FooterSteps {
         footerPage.clickModifySearch();
     }
 
+    @Step
+    public void shouldReturnResult(String searchResult) {
+        Assert.assertTrue(footerPage.isListOfResultsDisplayed());
+    }
+
+    @Step
+    public void fillFieldsDDT (String name, String description, String priceFrom, String priceTo, String selectColour, String selectSize, String selectGender) {
+
+        footerPage.typeProductName(name);
+        footerPage.typeProductDescription(description);
+        footerPage.typePriceFrom(priceFrom);
+        footerPage.typePriceTo(priceTo);
+        footerPage.selectProductColour(selectColour);
+        footerPage.selectProductSize(selectSize);
+        footerPage.selectGender(selectGender);
+
+    }
+
+    public String name, description, priceFrom, priceTo, selectColour, selectSize, selectGender, searchResult;
+
+    @Step
+    public void fillAndSearch() {
+        //fillFieldsDDT(name, description, priceFrom, priceTo, selectColour, selectSize, selectGender);
+        footerPage.typeProductName(name);
+        footerPage.typeProductDescription(description);
+        footerPage.typePriceFrom(priceFrom);
+        footerPage.typePriceTo(priceTo);
+        footerPage.selectProductColour(selectColour);
+        footerPage.selectProductSize(selectSize);
+        footerPage.selectGender(selectGender);
+        searchButton();
+        shouldReturnResult(searchResult);
+    }
 
 }

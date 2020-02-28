@@ -112,7 +112,7 @@ public class LoginSteps {
             headerPage.clickOnAccountDropdown();
             loginPage.clicklogout();
             headerPage.clickOnAccountDropdown();
-            loginPage.clickLoginButton();
+            loginPage.clicklogout();
         }else {
             String messageInvalid = loginPage.getGreetMessage();
             Assert.assertEquals(resultDefinition, messageInvalid);
