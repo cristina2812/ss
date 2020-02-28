@@ -8,9 +8,11 @@ import org.junit.runner.RunWith;
 import steps.HeaderSteps;
 import steps.ProductsListSteps;
 
+import static utils.Constants.CSV_FILES_PATH;
+
 
 @RunWith(SerenityParameterizedRunner.class)
-@UseTestDataFrom(value = "csv/SearchByKeyword.csv")
+@UseTestDataFrom(value = CSV_FILES_PATH +  "SearchByKeyword.csv")
 public class HeaderTestDataDrivenVersion extends BaseTest{
 
     private String searchKeyword, searchResult;
