@@ -98,4 +98,25 @@ public class LoginSteps {
         headerPage.clickOnAccountDropdown();
         loginPage.clicklogout();
     }
+
+    String emailAddress, password, resultDefinition;
+
+    @Step
+    public void onlyStepsmethod(){
+
+        loginPage.typeEmailAddress(emailAddress);
+        loginPage.typePassword(password);
+        loginPage.clickLoginButton();
+        resultDefinition = "Invalid login or password.";
+        if(resultDefinition == "Invalid login or password."){
+            headerPage.clickOnAccountDropdown();
+            loginPage.clicklogout();
+            headerPage.clickOnAccountDropdown();
+            loginPage.clickLoginButton();
+        }else {
+            String messageInvalid = loginPage.getGreetMessage();
+            Assert.assertEquals(resultDefinition, messageInvalid);
+        }
+
+    }
 }
